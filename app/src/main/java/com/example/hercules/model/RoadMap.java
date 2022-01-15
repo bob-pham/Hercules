@@ -1,4 +1,5 @@
-package Model;
+package com.example.hercules.model;
+
 
 import java.util.ArrayList;
 import java.util.List;

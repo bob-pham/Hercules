@@ -1,4 +1,4 @@
-package Model;
+package com.example.hercules.model;
 
 import android.os.Build;
 
