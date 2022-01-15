@@ -16,4 +16,10 @@ public class CardioRoadMap extends RoadMap {
     public List<Quest> createQuests() {
         return null;
     }
+
+
+
+
+
+
 }

@@ -7,34 +7,31 @@ import java.util.List;
 public class User {
     private Account account;
     private Goal goal;
-    private Admin admin;
     private double currentRewardsRemaining;
     private double totalRewardsGained;
-    private List<Quest> quests;
+//    private List<Quest> quests;
 
-    public User(String id, String pw, String name, String birthDayString, String goalName, List<Quest> quests) {
+    public User(String id, String pw, String name, String birthDayString, Goal goal, List<Quest> quests) {
+        this.goal = goal;
         account = new Account(id, pw, name, birthDayString);
-        goal.getGoal(Goal.GoalTypes.valueOf(goalName));
-        this.quests = quests;
     }
 
-    public User(String id, String pw, String name, String birthDayString, String goalName, Goal goal) {
-        account = new Account(id, pw, name, birthDayString);
-        this.quests = new ArrayList<>();
+    public User(String id, String pw, String name, String birthDayString, Goal goal) {
         this.goal = goal;
+        account = new Account(id, pw, name, birthDayString);
+//        this.quests = new ArrayList<>();
     }
 
     public User(String id, String pw, String name, String birthDayString) {
         account = new Account(id, pw, name, birthDayString);
-        this.quests = new ArrayList<>();
     }
 
     public void addQuest(Quest quest) {
-        this.quests.add(quest);
+        goal.addQuest(quest);
     }
 
     public void removeQuest(Quest quest) {
-        this.quests.remove(quest);
+        goal.removeQuest(quest);
     }
 
     public Account getAccount() {
@@ -69,12 +66,13 @@ public class User {
         this.totalRewardsGained = totalRewardsGained;
     }
 
-    public List<Quest> getQuests() {
-        return quests;
+    public String getID() {
+        return  account.getUserID();
     }
 
-    public void setQuests(List<Quest> quests) {
-        this.quests = quests;
+    public String getPW() {
+        return account.getUserPW();
     }
+
 
 }
