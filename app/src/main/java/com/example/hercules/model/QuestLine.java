@@ -16,6 +16,10 @@ public class QuestLine extends Quest implements Observer {
         this.quests = new ArrayList<>();
     }
 
+
+
+
+
     public void addQuest(Quest quest) {
         quest.addObserver(this);
         this.quests.add(quest);
@@ -58,7 +62,7 @@ public class QuestLine extends Quest implements Observer {
         for (Quest q : quests) {
             if (q.getProgress() == Status.COMPLETED || q.getProgress() == Status.FAILED) {
                 progress += 2;
-            } else if (q.getProgress() == Status.INPROGRESS) {
+            } else if (q.getProgress() == Status.IN_PROGRESS) {
                 progress++;
             }
         }
@@ -67,7 +71,7 @@ public class QuestLine extends Quest implements Observer {
             this.progress = Status.COMPLETED;
             this.percentDone = 100.0;
         } else {
-            this.progress = Status.INPROGRESS;
+            this.progress = Status.IN_PROGRESS;
             this.percentDone = (double) ((progress / 2) / quests.size())  * 100;
         }
 

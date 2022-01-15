@@ -18,8 +18,4 @@ public class User {
         account = new Account(id, pw, name, birthDayString);
     }
 
-
-
-
-
 }
