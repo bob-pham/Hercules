@@ -26,7 +26,6 @@ public class QuestLine extends Quest implements Observer {
     }
 
 
-
     @Override
     public void update(Observable observable, Object o) {
 

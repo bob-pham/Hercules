@@ -1,8 +1,8 @@
 package com.example.hercules.model;
 
 public enum Status {
-    NOTSTARTED,
+    NOT_STARTED,
     COMPLETED,
-    INPROGRESS,
+    IN_PROGRESS,
     FAILED
 }
