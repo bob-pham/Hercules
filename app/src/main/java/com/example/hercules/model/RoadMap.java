@@ -12,5 +12,11 @@ public abstract class RoadMap {
         quests.add(q);
     }
 
+    public void removeQuest(Quest q) {
+
+    }
+
+
+
 
 }

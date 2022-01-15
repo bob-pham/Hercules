@@ -7,6 +7,7 @@ import java.util.List;
 public class User {
     private Account account;
     private Goal goal;
+    private Admin admin;
     private double currentRewardsRemaining;
     private double totalRewardsGained;
     private List<Quest> quests;
@@ -17,10 +18,10 @@ public class User {
         this.quests = quests;
     }
 
-    public User(String id, String pw, String name, String birthDayString, String goalName) {
+    public User(String id, String pw, String name, String birthDayString, String goalName, Goal goal) {
         account = new Account(id, pw, name, birthDayString);
-        goal.getGoal(Goal.GoalTypes.valueOf(goalName));
         this.quests = new ArrayList<>();
+        this.goal = goal;
     }
 
     public User(String id, String pw, String name, String birthDayString) {

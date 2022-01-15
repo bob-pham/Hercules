@@ -10,6 +10,7 @@ public class Quest extends Observable {
     protected Status progress;
     protected boolean collaborative;
 
+
     public Quest(String name, int points, boolean collaborative) {
         this.name = name;
         this.points = points;
