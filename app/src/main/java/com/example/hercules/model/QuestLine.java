@@ -8,7 +8,7 @@ import java.util.Observer;
 public class QuestLine extends Quest implements Observer {
 
     private List<Quest> quests;
-    private int percentDone;
+    private double percentDone;
 
     public QuestLine(String name, boolean collaborative) {
         super(name, 0, collaborative);
@@ -25,9 +25,60 @@ public class QuestLine extends Quest implements Observer {
         this.quests.remove(quest);
     }
 
+    public int getEarnedPoints() {
+        int pointsEarned = 0;
+
+        for (Quest q : quests) {
+            if (q.getProgress() == Status.COMPLETED) {
+                pointsEarned += q.getPoints();
+            }
+        }
+        if (this.progress == Status.COMPLETED) {
+            return this.points + pointsEarned;
+        } else {
+            return pointsEarned;
+        }
+    }
+
+    @Override
+    public int getPoints() {
+        int points = 0;
+
+        for (Quest q : quests) {
+            points += q.getPoints();
+        }
+
+        return points + this.points;
+    }
+
+    private void calculatePercent() {
+
+        int progress = 0;
+
+        for (Quest q : quests) {
+            if (q.getProgress() == Status.COMPLETED || q.getProgress() == Status.FAILED) {
+                progress += 2;
+            } else if (q.getProgress() == Status.INPROGRESS) {
+                progress++;
+            }
+        }
+
+        if (progress / 2 == quests.size()) {
+            this.progress = Status.COMPLETED;
+            this.percentDone = 100.0;
+        } else {
+            this.progress = Status.INPROGRESS;
+            this.percentDone = (double) ((progress / 2) / quests.size())  * 100;
+        }
+
+    }
+
 
     @Override
     public void update(Observable observable, Object o) {
-
+        Update u = (Update) o;
+        if (o == Update.STATUS) {
+            calculatePercent();
+        }
     }
 }
