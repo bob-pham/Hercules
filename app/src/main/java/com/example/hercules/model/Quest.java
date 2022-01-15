@@ -14,6 +14,18 @@ public class Quest extends Observable {
         this.name = name;
         this.points = points;
         this.collaborative = collaborative;
+        this.progress = Status.NOTSTARTED;
+    }
+
+    public enum Status {
+        NOTSTARTED,
+        COMPLETED,
+        INPROGRESS,
+        FAILED
+    }
+
+    public enum Update {
+        STATUS
     }
 
     public String getName() {
@@ -46,5 +58,9 @@ public class Quest extends Observable {
 
     public void setProgress(Status progress) {
         this.progress = progress;
+        if (progress != Status.NOTSTARTED) {
+            setChanged();
+            notifyObservers(Update.STATUS);
+        }
     }
 }
