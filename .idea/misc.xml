@@ -3,7 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/layout/activity_main.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable/ic_baseline_bathtub_24.xml" value="0.440625" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable/ic_closet.xml" value="0.440625" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable/ic_home.xml" value="0.440625" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable/ic_launcher_background.xml" value="0.35" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/activity_main.xml" value="0.4244791666666667" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/activity_scrolling.xml" value="0.4244791666666667" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/content_scrolling.xml" value="0.4244791666666667" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/menu/menu_scrolling.xml" value="0.4244791666666667" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.35" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.440625" />
       </map>
     </option>
   </component>
