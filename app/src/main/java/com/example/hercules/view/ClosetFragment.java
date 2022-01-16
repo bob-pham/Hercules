@@ -2,13 +2,10 @@ package com.example.hercules.view;
 
 import android.content.Context;
 import android.os.Bundle;
-<<<<<<< HEAD
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-=======
->>>>>>> main
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
