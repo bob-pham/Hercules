@@ -17,17 +17,7 @@ public class Goal implements PropertyChangeListener {
     private double overallProgress = 0;
 
 
-//    public Goal(String name) {
-//        this.name = name;
-//        questsTodo = new ArrayList<>();
-//        questsDone = new ArrayList<>();
-//    }
-//
-//    public Goal(String name, List<Quest> questsTodo) {
-//        this.name = name;
-//        this.questsTodo = questsTodo;
-//        questsDone = new ArrayList<>();
-//    }
+
 
     public Goal(String name, User user, List<Quest> questsTodo) {
         this.name = name;
