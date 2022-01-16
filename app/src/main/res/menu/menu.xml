@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_closet"
             android:icon="@drawable/ic_closet"
-            android:title="Closet" />
+            android:title="Changeroom" />
         <item
             android:id="@+id/nav_quests"
             android:icon="@drawable/ic_quests"

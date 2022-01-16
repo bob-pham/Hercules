@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/design_default_color_primary_dark"
+    android:background="@drawable/questpath"
     tools:context=".view.QuestsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
+            android:fontFamily="sans-serif-black"
             android:text="@string/quest_header"
             android:textColor="@android:color/white"
             android:textSize="60sp"
