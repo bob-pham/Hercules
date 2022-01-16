@@ -1,28 +1,24 @@
 package com.example.hercules.model;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
     private Account account;
     private Goal goal;
     private double currentRewardsRemaining;
     private double totalRewardsGained;
+    private Set<SkinsOwned> skins;
 
     public User(String id, String pw, String name, String birthDayString) {
         account = new Account(id, pw, name, birthDayString);
+        skins = new HashSet<>();
     }
-
-
-
-
-
 
     public void addQuest(Quest quest) {
         goal.addQuest(quest);
     }
-
-
-
-
 
     public void removeQuest(Quest quest) {
         goal.removeQuest(quest);
@@ -32,11 +28,9 @@ public class User {
         return account;
     }
 
-
     public void setAccount(Account account) {
         this.account = account;
     }
-
 
     public Goal getGoal() {
         return goal;
@@ -70,5 +64,12 @@ public class User {
         return account.getUserPW();
     }
 
+    public void addSkin(SkinsOwned skin) {
+        this.skins.add(skin);
+    }
+
+    public boolean ownSkin(SkinsOwned skin) {
+        return this.skins.contains(skin);
+    }
 
 }
