@@ -12,4 +12,8 @@
     <string name="avatar_content_description">Your Current Avatar</string>
     <string name="tvCurrStreak">Current Streak: </string>
     <string name="tvLongStreak">Longest Streak: </string>
+    <string name="prompt_email">username</string>
+    <string name="prompt_password">password</string>
+    <string name="action_sign_in_short">Sign In</string>
+    <string name="action_sign_in">Sign In</string>
 </resources>
