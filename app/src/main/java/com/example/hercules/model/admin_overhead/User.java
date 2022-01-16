@@ -1,8 +1,7 @@
-package com.example.hercules.model;
+package com.example.hercules.model.admin_overhead;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.hercules.model.Quest;
 
 public class User {
     private Account account;

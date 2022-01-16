@@ -1,5 +1,6 @@
-package com.example.hercules.model;
+package com.example.hercules.model.admin_overhead;
 
+import com.example.hercules.model.road_maps.RoadMap;
 import com.example.hercules.model.road_maps.BulkUpRoadMap;
 import com.example.hercules.model.road_maps.CardioRoadMap;
 import com.example.hercules.model.road_maps.WeightLossRoadMap;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 public class Admin {
 
-    private Map<String, User> userMap;
+    private Map<String, User> userMap; // represents the server
 
     public enum GoalTypes {
         WEIGHT_LOSS, BULK_UP, WEIGHT_TRAINING, CARDIO

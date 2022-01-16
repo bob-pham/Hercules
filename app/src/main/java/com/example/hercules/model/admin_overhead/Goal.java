@@ -1,4 +1,6 @@
-package com.example.hercules.model;
+package com.example.hercules.model.admin_overhead;
+
+import com.example.hercules.model.Quest;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

@@ -1,4 +1,4 @@
-package com.example.hercules.model;
+package com.example.hercules.model.admin_overhead;
 
 public class Stats {
 
