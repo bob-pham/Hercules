@@ -1,6 +1,9 @@
 package com.example.hercules.model;
 
 
+import com.example.hercules.model.admin_overhead.Account;
+import com.example.hercules.model.admin_overhead.Goal;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -70,6 +73,16 @@ public class User {
 
     public boolean ownSkin(SkinsOwned skin) {
         return this.skins.contains(skin);
+    }
+    public void addPoints(int points) {
+        currentRewardsRemaining += points;
+        totalRewardsGained += points;
+    }
+
+
+    public void addPoints(double points) {
+        currentRewardsRemaining += points;
+        totalRewardsGained += points;
     }
 
 }

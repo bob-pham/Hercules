@@ -3,8 +3,8 @@ package com.example.hercules;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.example.hercules.model.User;
 import com.example.hercules.model.admin_overhead.Admin;
-import com.example.hercules.model.admin_overhead.User;
 
 import org.junit.Test;
 

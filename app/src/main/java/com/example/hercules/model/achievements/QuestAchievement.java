@@ -1,7 +1,6 @@
 package com.example.hercules.model.achievements;
 
 import java.util.Observable;
-import java.util.Observer;
 
 public class QuestAchievement extends Achievement {
 
@@ -22,6 +21,7 @@ public class QuestAchievement extends Achievement {
         questsNeeded *= 2;
     }
 
+
     private int generateExperience() {
         return (int) Math.floor(Math.random()*((xp)-(xp / 5)+1)+(xp / 5));
     }
@@ -29,6 +29,8 @@ public class QuestAchievement extends Achievement {
     private int generateRequired() {
         return (int) Math.floor(Math.random()*((questsNeeded * 2)-(questsNeeded)+1)+(questsNeeded));
     }
+
+
 
     //Will observe list of quests
     @Override
