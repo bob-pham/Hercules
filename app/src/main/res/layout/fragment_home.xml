@@ -9,19 +9,18 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/personalAvatarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/avatar_content_description"
-        android:src="@drawable/defaultavatar"/>
+        android:src="@drawable/defaultavatar" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:text="@string/welcome_message"
         android:textAlignment="center"
         android:textColor="#ffff"
         android:textSize="30sp"/>

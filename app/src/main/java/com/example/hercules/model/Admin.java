@@ -68,18 +68,7 @@ public class Admin {
         }
     }
 
-
     public Goal getGoal(String typeName, User user) {
         return getGoal(GoalTypes.valueOf(typeName), user);
     }
-
-
-
-
-
-
-
-
-
-
 }

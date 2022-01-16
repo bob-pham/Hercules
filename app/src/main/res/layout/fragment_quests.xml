@@ -8,11 +8,11 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:textColor="#ffff"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
+        android:id="@+id/questsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quests"/>
+        android:layout_centerInParent="true"
+        android:textColor="#ffff"
+        android:textSize="30sp" />
 
 </RelativeLayout>
