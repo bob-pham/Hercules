@@ -1,26 +1,29 @@
 package com.example.hercules;
 
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-
+import com.example.hercules.model.Admin;
+import com.example.hercules.model.User;
 import com.example.hercules.view.ClosetFragment;
 import com.example.hercules.view.HomeFragment;
-import com.example.hercules.view.QuestsFragment;
+import com.example.hercules.view.QuestsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    private User user;
     private BottomNavigationView bottomNavigationView;
-
+    private Admin admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        admin = new Admin();
+        //for testing
+        admin.createUser("chicken", "pizza", "coke", "2000-09-09", Admin.GoalTypes.CARDIO.toString());
         setContentView(R.layout.activity_main);
-
         bottomNavigationView = findViewById(R.id.bottomNav);
 
         bottomNavigationView.setOnItemSelectedListener(bottomNavMethod);
@@ -41,8 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_quests:
-                fragment = new QuestsFragment();
-                break;
+//                fragment = new QuestsFragment();
+                    Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
+                    startActivity(intent);
+                    return true;
+//                fragment = new QuestsFragment();
+//                break;
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();

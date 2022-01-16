@@ -2,6 +2,12 @@
     <string name="app_name">Hercules</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="avatar_content_description">Your Avatar Image</string>
-    <string name="welcome_message">Welcome, \'Insert User Here\'</string>
+    <string name="quest_header">QUEST</string>
+    <string name="gold">Gold</string>
+    <string name="Name" />
+    <string name="Tuesday" />
+    <string name="Description">Description</string>
+    <string name="NAME">Name</string>
+    <string name="Points">Points</string>
+    <string name="avatar_content_description">Your Current Avatar</string>
 </resources>

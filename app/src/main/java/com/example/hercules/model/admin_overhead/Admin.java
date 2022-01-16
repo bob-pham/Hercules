@@ -1,8 +1,8 @@
-package com.example.hercules.model.admin_overhead;
+package com.example.hercules.model;
 
-import com.example.hercules.model.road_maps.RoadMap;
 import com.example.hercules.model.road_maps.BulkUpRoadMap;
 import com.example.hercules.model.road_maps.CardioRoadMap;
+import com.example.hercules.model.road_maps.RoadMap;
 import com.example.hercules.model.road_maps.WeightLossRoadMap;
 import com.example.hercules.model.road_maps.WeightTrainingRoadMap;
 
@@ -13,13 +13,18 @@ import java.util.Map;
 
 public class Admin {
 
-    private Map<String, User> userMap; // represents the server
+    //String id
+    //User
+    private Map<String, User> userMap;
+
+
+
 
     public enum GoalTypes {
         WEIGHT_LOSS, BULK_UP, WEIGHT_TRAINING, CARDIO
     }
 
-    private static final RoadMap DietRoadMap = new WeightLossRoadMap();
+    private static final RoadMap WEIGHT_LOSS_ROAD_MAP = new WeightLossRoadMap();
     private static final RoadMap BULK_UP = new BulkUpRoadMap();
     private static final RoadMap WEIGHT_TRAINING = new WeightTrainingRoadMap();
     private static final RoadMap CARDIO = new CardioRoadMap();
@@ -31,6 +36,7 @@ public class Admin {
 
 
 
+
     public User createUser(String id, String pw, String name, String birthday, String goalName) {
         User user = new User(id, pw, name, birthday);
         Goal goal = getGoal(goalName, user);
@@ -38,8 +44,6 @@ public class Admin {
         userMap.put(id, user);
         return user;
     }
-
-
 
 
     public boolean loginAttempt(String id, String pw) {
@@ -59,7 +63,7 @@ public class Admin {
     private Goal getGoal(GoalTypes type, User user) {
         switch (type) {
             case WEIGHT_LOSS:
-                return DietRoadMap.getGoal(user);
+                return WEIGHT_LOSS_ROAD_MAP.getGoal(user);
             case BULK_UP:
                 return BULK_UP.getGoal(user);
             case WEIGHT_TRAINING:
@@ -71,12 +75,9 @@ public class Admin {
         }
     }
 
-
     public Goal getGoal(String typeName, User user) {
         return getGoal(GoalTypes.valueOf(typeName), user);
     }
-
-
 
     public List<User> getUserList() {
         if (userMap.isEmpty()) {
@@ -84,6 +85,7 @@ public class Admin {
         }
         return new ArrayList<>(userMap.values());
     }
+
 
 
 

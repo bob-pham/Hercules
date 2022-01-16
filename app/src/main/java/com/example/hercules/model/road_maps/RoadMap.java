@@ -1,9 +1,9 @@
 package com.example.hercules.model.road_maps;
 
 
+import com.example.hercules.model.Goal;
 import com.example.hercules.model.Quest;
-import com.example.hercules.model.admin_overhead.Goal;
-import com.example.hercules.model.admin_overhead.User;
+import com.example.hercules.model.User;
 
 import java.util.List;
 
@@ -31,6 +31,9 @@ public abstract class RoadMap {
     public String getName() {
         return name;
     }
+
+
+
 
     public abstract List<Quest> createQuests();
 

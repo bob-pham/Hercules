@@ -91,4 +91,132 @@ public class Stats {
     private int calculateXPNeeded() {
         return (this.level * this.level) + (this.level * 10);
     }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getCurrentStreak() {
+        return currentStreak;
+    }
+
+    public void setCurrentStreak(int currentStreak) {
+        this.currentStreak = currentStreak;
+    }
+
+    public int getLongestStreak() {
+        return longestStreak;
+    }
+
+    public void setLongestStreak(int longestStreak) {
+        this.longestStreak = longestStreak;
+    }
+
+    public int getWeightChange() {
+        return weightChange;
+    }
+
+    public void setWeightChange(int weightChange) {
+        this.weightChange = weightChange;
+    }
+
+    public int getCurrentWeight() {
+        return currentWeight;
+    }
+
+    public void setCurrentWeight(int currentWeight) {
+        this.currentWeight = currentWeight;
+    }
+
+    public int getMinutesExercised() {
+        return minutesExercised;
+    }
+
+    public void setMinutesExercised(int minutesExercised) {
+        this.minutesExercised = minutesExercised;
+    }
+
+    public double getBodyFatPercentage() {
+        return bodyFatPercentage;
+    }
+
+    public void setBodyFatPercentage(double bodyFatPercentage) {
+        this.bodyFatPercentage = bodyFatPercentage;
+    }
+
+    public double getBodyMassIndex() {
+        return bodyMassIndex;
+    }
+
+    public void setBodyMassIndex(double bodyMassIndex) {
+        this.bodyMassIndex = bodyMassIndex;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getWaistCircumference() {
+        return waistCircumference;
+    }
+
+    public void setWaistCircumference(double waistCircumference) {
+        this.waistCircumference = waistCircumference;
+    }
+
+    public double getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public void setBloodPressure(double bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public double getBench() {
+        return bench;
+    }
+
+    public void setBench(double bench) {
+        this.bench = bench;
+    }
+
+    public double getSquat() {
+        return squat;
+    }
+
+    public void setSquat(double squat) {
+        this.squat = squat;
+    }
+
+    public double getDeadLift() {
+        return deadLift;
+    }
+
+    public void setDeadLift(double deadLift) {
+        this.deadLift = deadLift;
+    }
 }
