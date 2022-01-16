@@ -85,7 +85,6 @@ public class QuestLine extends Quest implements Observer, PropertyChangeListener
         return count;
     }
 
-
     @Override
     public void update(Observable observable, Object o) {
         Update u = (Update) o;
