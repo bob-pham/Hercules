@@ -1,6 +1,7 @@
 package com.example.hercules.view;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.CheckBox;
@@ -61,17 +62,20 @@ public class QuestsActivity extends AppCompatActivity {
         nameColumn.setText("Name");
         nameColumn.setGravity(Gravity.CENTER);
         nameColumn.setTextColor(Color.WHITE);
-        nameColumn.setTextSize(17);
+        nameColumn.setTypeface(null, Typeface.BOLD);
+        nameColumn.setTextSize(16);
         header.addView(nameColumn);
         TextView descriptionColumn = new TextView(this);
         descriptionColumn.setText("Description");
+        descriptionColumn.setTypeface(null, Typeface.BOLD);
         descriptionColumn.setTextColor(Color.WHITE);
         descriptionColumn.setGravity(Gravity.CENTER);
-        descriptionColumn.setTextSize(17);
+        descriptionColumn.setTextSize(16);
         header.addView(descriptionColumn);
         TextView goldsColumn = new TextView(this);
+        goldsColumn.setTypeface(null, Typeface.BOLD);
         goldsColumn.setText("Golds");
-        goldsColumn.setTextSize(17);
+        goldsColumn.setTextSize(16);
         goldsColumn.setTextColor(Color.WHITE);
         goldsColumn.setGravity(Gravity.CENTER);
         header.addView(goldsColumn);
@@ -91,15 +95,18 @@ public class QuestsActivity extends AppCompatActivity {
             TextView name = new TextView(this);
             name.setGravity(Gravity.CENTER);
             name.setTextColor(Color.WHITE);
-            name.setTextSize(15);
+            name.setTypeface(null, Typeface.BOLD);
+            name.setTextSize(14);
             TextView description = new TextView(this);
             description.setGravity(Gravity.CENTER);
             description.setTextColor(Color.WHITE);
-            description.setTextSize(15);
+            description.setTextSize(14);
+            description.setTypeface(null, Typeface.BOLD);
             TextView golds = new TextView(this);
             golds.setGravity(Gravity.CENTER);
             golds.setTextColor(Color.WHITE);
-            golds.setTextSize(15);
+            golds.setTextSize(14);
+            golds.setTypeface(null, Typeface.BOLD);
             CheckBox checkBox = new CheckBox(this);
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

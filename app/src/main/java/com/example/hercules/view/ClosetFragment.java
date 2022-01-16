@@ -92,6 +92,11 @@ public class ClosetFragment extends Fragment {
         next = view.findViewById(R.id.next);
         select = view.findViewById(R.id.select);
         check = view.findViewById(R.id.selected_check);
+        
+
+
+
+
 
         gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
 
@@ -155,6 +160,9 @@ public class ClosetFragment extends Fragment {
 
         return view;
     }
+
+
+
 
     private void attemptPurchaseSkin() {
         int currentGold = MainActivity.user.getUserStats().getGold();
@@ -224,7 +232,6 @@ public class ClosetFragment extends Fragment {
                 }
                 break;
         }
-
     }
 
     private void updateBought() {
@@ -283,6 +290,8 @@ public class ClosetFragment extends Fragment {
                 break;
         }
     }
+
+
 
     private void changePic() {
         switch (currentSkin) {
