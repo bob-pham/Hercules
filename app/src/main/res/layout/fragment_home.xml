@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.HomeFragment"
-    android:background="@color/design_default_color_primary_dark">
+    android:background="@drawable/gympixel">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,6 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:textAlignment="center"
+            android:fontFamily="sans-serif-black"
             android:textColor="#ffff"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"

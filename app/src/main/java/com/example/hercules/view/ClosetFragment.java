@@ -21,6 +21,8 @@ import com.example.hercules.MainActivity;
 import com.example.hercules.R;
 import com.example.hercules.model.SkinsOwned;
 import com.example.hercules.model.User;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,10 +42,10 @@ public class ClosetFragment extends Fragment {
     private Button select;
     private ImageView skin;
     private ImageView coin;
+    private ImageView check;
     private TextView gold;
     private TextView price;
     private TextView skinName;
-
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -95,8 +97,15 @@ public class ClosetFragment extends Fragment {
         prev = view.findViewById(R.id.previous);
         next = view.findViewById(R.id.next);
         select = view.findViewById(R.id.select);
+        check = view.findViewById(R.id.selected_check);
 
         gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
+
+        if (currentSkin == avatar) {
+            check.setVisibility(View.VISIBLE);
+        } else {
+            check.setVisibility(View.INVISIBLE);
+        }
 
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +152,7 @@ public class ClosetFragment extends Fragment {
             public void onClick(View view) {
                 if (checkOwnSkin()) {
                     avatar = currentSkin;
+                    check.setVisibility(View.VISIBLE);
                 } else {
                     attemptPurchaseSkin();
                 }
@@ -226,6 +236,8 @@ public class ClosetFragment extends Fragment {
     private void updateBought() {
         gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
         select.setText("Select");
+        coin.setVisibility(View.INVISIBLE);
+        price.setVisibility(View.INVISIBLE);
     }
 
     private boolean checkOwnSkin() {
@@ -313,6 +325,11 @@ public class ClosetFragment extends Fragment {
                 skinName.setText("Default");
                 currentSkin = 0;
                 break;
+        }
+        if (currentSkin == avatar) {
+            check.setVisibility(View.VISIBLE);
+        } else {
+            check.setVisibility(View.INVISIBLE);
         }
     }
 }
