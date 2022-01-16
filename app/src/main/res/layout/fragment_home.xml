@@ -42,9 +42,7 @@
             android:id="@+id/pbContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/statsLayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,9 +72,9 @@
 
         <TableLayout
             android:id="@+id/statsLayout"
-            android:layout_width="129dp"
-            android:layout_height="94dp"
-            android:layout_marginBottom="56dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
             android:gravity="center_horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/pbContainer"
