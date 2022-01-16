@@ -34,10 +34,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent">
+
             <ScrollView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffffff">
+                android:background="@android:color/transparent">
 
 
                 <HorizontalScrollView

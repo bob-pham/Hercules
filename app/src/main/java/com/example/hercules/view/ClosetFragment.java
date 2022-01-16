@@ -1,18 +1,11 @@
 package com.example.hercules.view;
 
-import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -21,8 +14,6 @@ import com.example.hercules.MainActivity;
 import com.example.hercules.R;
 import com.example.hercules.model.SkinsOwned;
 import com.example.hercules.model.User;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,6 +45,9 @@ public class ClosetFragment extends Fragment {
     public ClosetFragment() {
         // Required empty public constructor
     }
+
+
+
 
     /**
      * Use this factory method to create a new instance of

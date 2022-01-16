@@ -57,28 +57,32 @@ public class QuestsActivity extends AppCompatActivity {
     public void addTable() {
         TableLayout tableLayout = (TableLayout) findViewById(R.id.quest_table);
         TableRow header = new TableRow(this);
-
         TextView nameColumn = new TextView(this);
         nameColumn.setText("Name");
         nameColumn.setGravity(Gravity.CENTER);
-        nameColumn.setTextColor(Color.BLACK);
+        nameColumn.setTextColor(Color.WHITE);
+        nameColumn.setTextSize(17);
         header.addView(nameColumn);
         TextView descriptionColumn = new TextView(this);
         descriptionColumn.setText("Description");
-        descriptionColumn.setTextColor(Color.BLACK);
+        descriptionColumn.setTextColor(Color.WHITE);
         descriptionColumn.setGravity(Gravity.CENTER);
+        descriptionColumn.setTextSize(17);
         header.addView(descriptionColumn);
-        TextView pointColumn = new TextView(this);
-        pointColumn.setText("Points");
-        pointColumn.setTextColor(Color.BLACK);
-        pointColumn.setGravity(Gravity.CENTER);
-        header.addView(pointColumn);
-        TextView checkBoxColumn = new TextView(this);
-        checkBoxColumn.setText("DONE");
-        checkBoxColumn.setTextColor(Color.BLACK);
-        checkBoxColumn.setGravity(Gravity.CENTER);
-        header.addView(checkBoxColumn);
+        TextView goldsColumn = new TextView(this);
+        goldsColumn.setText("Golds");
+        goldsColumn.setTextSize(17);
+        goldsColumn.setTextColor(Color.WHITE);
+        goldsColumn.setGravity(Gravity.CENTER);
+        header.addView(goldsColumn);
+//        TextView checkBoxColumn = new TextView(this);
+//        checkBoxColumn.setText("Done");
+//        checkBoxColumn.setTextColor(Color.WHITE);
+//        checkBoxColumn.setGravity(Gravity.CENTER);
+//        checkBoxColumn.setTextSize(17);
+//        header.addView(checkBoxColumn);
         tableLayout.addView(header);
+//        tableLayout.setBackgroundColor(Color.RED);
         List<Quest> questsTodo = goal.getQuestsTodo();
         for (Quest quest: questsTodo) {
             TableRow tableRow = new TableRow(this);
@@ -86,32 +90,34 @@ public class QuestsActivity extends AppCompatActivity {
             tableRow.setLayoutParams(lp);
             TextView name = new TextView(this);
             name.setGravity(Gravity.CENTER);
-            name.setTextColor(Color.BLACK);
+            name.setTextColor(Color.WHITE);
+            name.setTextSize(15);
             TextView description = new TextView(this);
             description.setGravity(Gravity.CENTER);
-            description.setTextColor(Color.BLACK);
-            TextView points = new TextView(this);
-            points.setGravity(Gravity.CENTER);
-            points.setTextColor(Color.BLACK);
-
+            description.setTextColor(Color.WHITE);
+            description.setTextSize(15);
+            TextView golds = new TextView(this);
+            golds.setGravity(Gravity.CENTER);
+            golds.setTextColor(Color.WHITE);
+            golds.setTextSize(15);
             CheckBox checkBox = new CheckBox(this);
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                     if (isChecked) {
                         goal.questDone(quest);
-//                        System.out.println(user.getCurrentRewardsRemaining());
                     }
                 }
             });
 
             name.setText(quest.getName());
             description.setText(quest.getDescription());
-            points.setText(String.valueOf(quest.getPoints()));
+            golds.setText(String.valueOf(quest.getPoints()));
             tableRow.addView(name);
             tableRow.addView(description);
-            tableRow.addView(points);
+            tableRow.addView(golds);
             tableRow.addView(checkBox);
+            tableRow.setBackgroundColor(Color.TRANSPARENT);
             tableLayout.addView(tableRow);
         }
     }

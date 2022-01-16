@@ -24,9 +24,13 @@ public abstract class RoadMap {
         defaultQuests.add(q);
     }
 
+
+
     public boolean removeQuest(Quest q) {
         return defaultQuests.remove(q);
     }
+
+
 
     public String getName() {
         return name;
