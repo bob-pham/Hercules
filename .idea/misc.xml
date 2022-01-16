@@ -3,21 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3859375" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/drawable/ic_closet.xml" value="0.3859375" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/drawable/ic_home.xml" value="0.3859375" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3859375" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/drawable/ic_quests.xml" value="0.3859375" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/layout/activity_main.xml" value="0.19114583333333332" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/layout/clothes_item.xml" value="0.3697916666666667" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/layout/fragment_closet.xml" value="0.4" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/layout/fragment_home.xml" value="0.3697916666666667" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/layout/fragment_quests.xml" value="0.3697916666666667" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/layout/single_item.xml" value="0.3697916666666667" />
-        <entry key="..\:/Users/Bobby/AndroidStudioProjects/Hercules/app/src/main/res/menu/menu.xml" value="0.3697916666666667" />
-=======
-        <entry key="../../../../layout/custom_preview.xml" value="0.16203703703703703" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable/ic_baseline_bathtub_24.xml" value="0.440625" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/drawable/ic_closet.xml" value="0.440625" />
@@ -28,19 +13,16 @@
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/activity_scrolling.xml" value="0.4244791666666667" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/content_scrolling.xml" value="0.4244791666666667" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/fragment_closet.xml" value="0.4244791666666667" />
-        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/fragment_home.xml" value="0.3756513500710564" />
+        <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/fragment_home.xml" value="0.4244791666666667" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/layout/fragment_quests.xml" value="0.4244791666666667" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/menu/drawer_menu.xml" value="0.4244791666666667" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/menu/menu.xml" value="0.328125" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/menu/menu_scrolling.xml" value="0.4244791666666667" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.35" />
         <entry key="..\:/Users/jaysq/Documents/GitHub/Hercules/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.440625" />
-        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.16203703703703703" />
-        <entry key="app/src/main/res/drawable/ic_quests.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17708333333333334" />
-        <entry key="app/src/main/res/layout/fragment_quests.xml" value="0.17708333333333334" />
-        <entry key="app/src/main/res/menu/menu.xml" value="0.17708333333333334" />
->>>>>>> main
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2391304347826087" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2391304347826087" />
+        <entry key="app/src/main/res/layout/fragment_quests.xml" value="0.2391304347826087" />
       </map>
     </option>
   </component>
