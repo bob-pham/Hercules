@@ -71,5 +71,10 @@ public class User {
     public boolean ownSkin(SkinsOwned skin) {
         return this.skins.contains(skin);
     }
+    public void addPoints(int points) {
+        currentRewardsRemaining += points;
+        totalRewardsGained += points;
+    }
+
 
 }
