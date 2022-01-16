@@ -1,26 +1,11 @@
 package com.example.hercules.model;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class User {
     private Account account;
     private Goal goal;
     private double currentRewardsRemaining;
     private double totalRewardsGained;
-//    private List<Quest> quests;
-
-//    public User(String id, String pw, String name, String birthDayString, Goal goal, List<Quest> quests) {
-//        this.goal = goal;
-//        account = new Account(id, pw, name, birthDayString);
-//    }
-//
-//    public User(String id, String pw, String name, String birthDayString, Goal goal) {
-//        this.goal = goal;
-//        account = new Account(id, pw, name, birthDayString);
-////        this.quests = new ArrayList<>();
-//    }
 
     public User(String id, String pw, String name, String birthDayString) {
         account = new Account(id, pw, name, birthDayString);
