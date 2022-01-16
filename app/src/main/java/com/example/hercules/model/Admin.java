@@ -2,10 +2,12 @@ package com.example.hercules.model;
 
 import com.example.hercules.model.road_maps.BulkUpRoadMap;
 import com.example.hercules.model.road_maps.CardioRoadMap;
-import com.example.hercules.model.road_maps.DietRoadMap;
+import com.example.hercules.model.road_maps.WeightLossRoadMap;
 import com.example.hercules.model.road_maps.WeightTrainingRoadMap;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Admin {
@@ -16,20 +18,14 @@ public class Admin {
         WEIGHT_LOSS, BULK_UP, WEIGHT_TRAINING, CARDIO
     }
 
-    private static final RoadMap DietRoadMap = new DietRoadMap();
+    private static final RoadMap DietRoadMap = new WeightLossRoadMap();
     private static final RoadMap BULK_UP = new BulkUpRoadMap();
     private static final RoadMap WEIGHT_TRAINING = new WeightTrainingRoadMap();
     private static final RoadMap CARDIO = new CardioRoadMap();
 
-
-
-
-
     public Admin() {
         userMap = new HashMap<>();
     }
-
-
 
     public User createUser(String id, String pw, String name, String birthday, String goalName) {
         User user = new User(id, pw, name, birthday);
@@ -51,8 +47,6 @@ public class Admin {
         }
     }
 
-
-
     private Goal getGoal(GoalTypes type, User user) {
         switch (type) {
             case WEIGHT_LOSS:
@@ -71,4 +65,12 @@ public class Admin {
     public Goal getGoal(String typeName, User user) {
         return getGoal(GoalTypes.valueOf(typeName), user);
     }
+
+    public List<User> getUserList() {
+        if (userMap.isEmpty()) {
+            return new ArrayList<>();
+        }
+        return new ArrayList<>(userMap.values());
+    }
+
 }

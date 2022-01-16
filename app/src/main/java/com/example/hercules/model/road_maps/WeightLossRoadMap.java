@@ -1,16 +1,15 @@
 package com.example.hercules.model.road_maps;
 
-import com.example.hercules.model.Goal;
+import com.example.hercules.model.Admin;
 import com.example.hercules.model.Quest;
 import com.example.hercules.model.RoadMap;
-import com.example.hercules.model.User;
 
 import java.util.List;
 
-public class DietRoadMap extends RoadMap {
+public class WeightLossRoadMap extends RoadMap {
 
-    public DietRoadMap() {
-        super("DIET");
+    public WeightLossRoadMap() {
+        super(Admin.GoalTypes.WEIGHT_LOSS.toString());
     }
 
     @Override
