@@ -77,4 +77,9 @@ public class User {
     }
 
 
+    public void addPoints(double points) {
+        currentRewardsRemaining += points;
+        totalRewardsGained += points;
+    }
+
 }
