@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.hercules.model.Admin;
 import com.example.hercules.model.User;
 import com.example.hercules.view.ClosetFragment;
 import com.example.hercules.view.HomeFragment;
@@ -15,11 +16,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private User user;
     private BottomNavigationView bottomNavigationView;
-
+    private Admin admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        admin = new Admin();
+        //for testing
+        admin.createUser("chicken", "pizza", "coke", "2000-09-09", Admin.GoalTypes.CARDIO.toString());
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNav);
 
@@ -45,19 +48,12 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
                     startActivity(intent);
                     return true;
+//                fragment = new QuestsFragment();
+//                break;
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
 
         return true;
     };
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//
-//
-//        }
-//        return false;
-//    }
 }
