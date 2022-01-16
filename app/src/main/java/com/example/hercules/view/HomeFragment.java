@@ -70,6 +70,9 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        ImageView avatar = view.findViewById(R.id.personalAvatarView);
+        changePic(avatar, ClosetFragment.avatar);
+
         tvWelcomeMessage = view.findViewById(R.id.welcomeTextView);
         tvWelcomeMessage.setText("Welcome, " + MainActivity.user.getAccount().getName());
 
@@ -80,10 +83,10 @@ public class HomeFragment extends Fragment {
         tvExperienceLevel.setText("Level " + MainActivity.user.getUserStats().getLevel() + ":"); // Replace with user level
 
         tvCurrStreakVal = view.findViewById(R.id.tvCurrStreakVal);
-        tvCurrStreakVal.setText(MainActivity.user.getUserStats().getCurrentStreak());
+        tvCurrStreakVal.setText(String.valueOf(MainActivity.user.getUserStats().getCurrentStreak()));
 
         tvLongStreakVal = view.findViewById(R.id.tvLongStreakVal);
-        tvLongStreakVal.setText(MainActivity.user.getUserStats().getLongestStreak());
+        tvLongStreakVal.setText(String.valueOf(MainActivity.user.getUserStats().getLongestStreak()));
 
         return view;
     }

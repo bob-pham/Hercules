@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static MainActivity instance;
 
     private void initializeUser() {
-        MainActivity.user = new User("69420","password","Achilles","2002-01-01");
+        MainActivity.user = admin.createUser("69420","password","Achilles","2002-01-01", Admin.GoalTypes.CARDIO.toString());
         initializeUserStats(MainActivity.user.getUserStats());
     }
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         admin = new Admin();
         initializeUser();
         //for testing
-        user = admin.createUser("chicken", "pizza", "coke", "2000-09-09", Admin.GoalTypes.CARDIO.toString());
+//        user = admin.createUser("chicken", "pizza", "coke", "2000-09-09", Admin.GoalTypes.CARDIO.toString());
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setOnItemSelectedListener(bottomNavMethod);
@@ -72,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
 //                fragment = new QuestsFragment();
                 break;
 //                break;
