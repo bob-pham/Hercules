@@ -6,8 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.hercules.model.Admin;
 import com.example.hercules.model.User;
+import com.example.hercules.model.admin_overhead.Admin;
 import com.example.hercules.view.ClosetFragment;
 import com.example.hercules.view.HomeFragment;
 import com.example.hercules.view.QuestsActivity;

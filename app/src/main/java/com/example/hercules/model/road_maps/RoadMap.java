@@ -1,9 +1,9 @@
 package com.example.hercules.model.road_maps;
 
 
-import com.example.hercules.model.Goal;
 import com.example.hercules.model.Quest;
 import com.example.hercules.model.User;
+import com.example.hercules.model.admin_overhead.Goal;
 
 import java.util.List;
 

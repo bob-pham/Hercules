@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hercules.MainActivity;
 import com.example.hercules.R;
-import com.example.hercules.model.Goal;
 import com.example.hercules.model.Quest;
 import com.example.hercules.model.User;
+import com.example.hercules.model.admin_overhead.Goal;
 
 import java.util.List;
 
@@ -101,7 +101,7 @@ public class QuestsActivity extends AppCompatActivity {
                 public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                     if (isChecked) {
                         goal.questDone(quest);
-                        System.out.println(user.getCurrentRewardsRemaining());
+//                        System.out.println(user.getCurrentRewardsRemaining());
                     }
                 }
             });

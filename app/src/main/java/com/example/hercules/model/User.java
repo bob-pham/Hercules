@@ -1,6 +1,9 @@
 package com.example.hercules.model;
 
 
+import com.example.hercules.model.admin_overhead.Account;
+import com.example.hercules.model.admin_overhead.Goal;
+
 import java.util.HashSet;
 import java.util.Set;
 
