@@ -1,13 +1,12 @@
 package com.example.hercules.view;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.hercules.R;
 
@@ -64,7 +63,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        welcomeTextView = view.findViewById(R.id.welcomeTextView);
         welcomeTextView.setText("Welcome!, 'insert username'");
         return view;
     }
