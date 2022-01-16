@@ -63,7 +63,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        welcomeTextView.setText("Welcome!, 'insert username'");
+        welcomeTextView = view.findViewById(R.id.welcomeTextView);
+        welcomeTextView.setText("Welcome, 'insert username'!");
         return view;
     }
 }
