@@ -89,6 +89,6 @@ public class Stats {
     }
 
     private int calculateXPNeeded() {
-        return (this.level * this.level) + (this.level * 6);
+        return (this.level * this.level) + (this.level * 10);
     }
 }
