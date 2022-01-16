@@ -9,7 +9,7 @@ import android.util.Patterns;
 import com.example.hercules.view.data.LoginRepository;
 import com.example.hercules.view.data.Result;
 import com.example.hercules.view.data.model.LoggedInUser;
-import com.example.hercules.view.R;
+import com.example.hercules.R;
 
 public class LoginViewModel extends ViewModel {
 

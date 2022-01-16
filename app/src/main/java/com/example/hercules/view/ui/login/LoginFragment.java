@@ -21,8 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.hercules.view.R;
-import com.example.hercules.view.databinding.FragmentLoginBinding;
+import com.example.hercules.R;
+import com.example.hercules.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
 
