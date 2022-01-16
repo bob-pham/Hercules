@@ -12,10 +12,6 @@ public class Quest extends Observable {
     protected boolean collaborative;
     protected PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
-
-
-
-
     public Quest(String name, int points, boolean collaborative) {
         this.name = name;
         this.points = points;

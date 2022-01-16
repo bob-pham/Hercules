@@ -23,12 +23,9 @@ public class Admin {
     private static final RoadMap WEIGHT_TRAINING = new WeightTrainingRoadMap();
     private static final RoadMap CARDIO = new CardioRoadMap();
 
-
     public Admin() {
         userMap = new HashMap<>();
     }
-
-
 
     public User createUser(String id, String pw, String name, String birthday, String goalName) {
         User user = new User(id, pw, name, birthday);
@@ -37,9 +34,6 @@ public class Admin {
         userMap.put(id, user);
         return user;
     }
-
-
-
 
     public boolean loginAttempt(String id, String pw) {
         User user = userMap.get(id);
@@ -52,8 +46,6 @@ public class Admin {
             return false;
         }
     }
-
-
 
     private Goal getGoal(GoalTypes type, User user) {
         switch (type) {
@@ -70,12 +62,9 @@ public class Admin {
         }
     }
 
-
     public Goal getGoal(String typeName, User user) {
         return getGoal(GoalTypes.valueOf(typeName), user);
     }
-
-
 
     public List<User> getUserList() {
         if (userMap.isEmpty()) {
@@ -83,19 +72,5 @@ public class Admin {
         }
         return new ArrayList<>(userMap.values());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
