@@ -13,9 +13,8 @@ public class Admin {
     private Map<String, User> userMap;
 
     public enum GoalTypes {
-        DIET, BULK_UP, WEIGHT_TRAINING, CARDIO
+        WEIGHT_LOSS, BULK_UP, WEIGHT_TRAINING, CARDIO
     }
-
 
     private static final RoadMap DietRoadMap = new DietRoadMap();
     private static final RoadMap BULK_UP = new BulkUpRoadMap();
@@ -32,9 +31,12 @@ public class Admin {
 
 
 
-    public void createUser(String id, String pw, String name, String birthday, String goalName) {
-        Goal goal = getGoal(goalName);
-        userMap.put(id, new User(id, pw, name, birthday, goal));
+    public User createUser(String id, String pw, String name, String birthday, String goalName) {
+        User user = new User(id, pw, name, birthday);
+        Goal goal = getGoal(goalName, user);
+        user.setGoal(goal);
+        userMap.put(id, user);
+        return user;
     }
 
     public boolean loginAttempt(String id, String pw) {
@@ -51,23 +53,24 @@ public class Admin {
 
 
 
-    private Goal getGoal(GoalTypes type) {
+    private Goal getGoal(GoalTypes type, User user) {
         switch (type) {
-            case DIET:
-                return DietRoadMap.getGoal();
+            case WEIGHT_LOSS:
+                return DietRoadMap.getGoal(user);
             case BULK_UP:
-                return BULK_UP.getGoal();
+                return BULK_UP.getGoal(user);
             case WEIGHT_TRAINING:
-                return WEIGHT_TRAINING.getGoal();
+                return WEIGHT_TRAINING.getGoal(user);
             case CARDIO:
-                return CARDIO.getGoal();
+                return CARDIO.getGoal(user);
             default:
                 return null;
         }
     }
 
-    public Goal getGoal(String typeName) {
-        return getGoal(GoalTypes.valueOf(typeName));
+
+    public Goal getGoal(String typeName, User user) {
+        return getGoal(GoalTypes.valueOf(typeName), user);
     }
 
 

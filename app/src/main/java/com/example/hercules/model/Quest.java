@@ -13,6 +13,9 @@ public class Quest extends Observable {
     protected PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
 
+
+
+
     public Quest(String name, int points, boolean collaborative) {
         this.name = name;
         this.points = points;
@@ -67,13 +70,7 @@ public class Quest extends Observable {
         Status old = this.progress;
         this.progress = progress;
         changeSupport.firePropertyChange(Update.STATUS.toString(),old, progress);
-//        if (progress.equals(Status.NOT_STARTED)){
-//            changeSupport.firePropertyChange(Update.STATUS.toString(), Status.NOT_STARTED, Status.IN_PROGRESS);
-//        }
-//        if (progress != Status.NOT_STARTED) {
 
-//            setChanged();
-//            notifyObservers(Update.STATUS);
     }
 
 

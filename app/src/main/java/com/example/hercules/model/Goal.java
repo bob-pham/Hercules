@@ -10,23 +10,32 @@ import java.util.Objects;
 public class Goal implements PropertyChangeListener {
 
     private String name;
+    private User user;
 
     private List<Quest> questsTodo;
     private List<Quest> questsDone;
     private double overallProgress = 0;
 
 
-    public Goal(String name) {
-        this.name = name;
-        questsTodo = new ArrayList<>();
-        questsDone = new ArrayList<>();
-    }
+//    public Goal(String name) {
+//        this.name = name;
+//        questsTodo = new ArrayList<>();
+//        questsDone = new ArrayList<>();
+//    }
+//
+//    public Goal(String name, List<Quest> questsTodo) {
+//        this.name = name;
+//        this.questsTodo = questsTodo;
+//        questsDone = new ArrayList<>();
+//    }
 
-    public Goal(String name, List<Quest> questsTodo) {
+    public Goal(String name, User user, List<Quest> questsTodo) {
         this.name = name;
+        this.user = user;
         this.questsTodo = questsTodo;
         questsDone = new ArrayList<>();
     }
+
 
     public List<Quest> getQuestsTodo() {
         return questsTodo;
@@ -55,6 +64,8 @@ public class Goal implements PropertyChangeListener {
         return Objects.equals(questsTodo, goal.questsTodo);
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hash(questsTodo);
@@ -76,19 +87,21 @@ public class Goal implements PropertyChangeListener {
 
 
     public int getQuestsDoneCount() {
-        int count = 0;
-        for (Quest q: questsDone) {
-            count += q.getCount();
-        }
-        return count;
+        return questsDone.size();
+//        int count = 0;
+//        for (Quest q: questsDone) {
+//            count += q.getCount();
+//        }
+//        return count;
     }
 
     public int getQuestsToDoCount() {
-        int count = 0;
-        for (Quest q: questsTodo) {
-            count += q.getCount();
-        }
-        return count;
+        return questsTodo.size();
+//        int count = 0;
+//        for (Quest q: questsTodo) {
+//            count += q.getCount();
+//        }
+//        return count;
     }
 
     public void goalAchieved() {
@@ -109,6 +122,12 @@ public class Goal implements PropertyChangeListener {
                 }
             }
         }
+    }
 
+    public Quest getNextQuest() {
+        if (questsTodo.isEmpty()) {
+            return null;
+        }
+        return questsTodo.get(0);
     }
 }
