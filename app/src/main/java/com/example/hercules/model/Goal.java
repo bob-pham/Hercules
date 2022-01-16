@@ -87,19 +87,21 @@ public class Goal implements PropertyChangeListener {
 
 
     public int getQuestsDoneCount() {
-        int count = 0;
-        for (Quest q: questsDone) {
-            count += q.getCount();
-        }
-        return count;
+        return questsDone.size();
+//        int count = 0;
+//        for (Quest q: questsDone) {
+//            count += q.getCount();
+//        }
+//        return count;
     }
 
     public int getQuestsToDoCount() {
-        int count = 0;
-        for (Quest q: questsTodo) {
-            count += q.getCount();
-        }
-        return count;
+        return questsTodo.size();
+//        int count = 0;
+//        for (Quest q: questsTodo) {
+//            count += q.getCount();
+//        }
+//        return count;
     }
 
     public void goalAchieved() {
@@ -120,5 +122,12 @@ public class Goal implements PropertyChangeListener {
                 }
             }
         }
+    }
+
+    public Quest getNextQuest() {
+        if (questsTodo.isEmpty()) {
+            return null;
+        }
+        return questsTodo.get(0);
     }
 }
