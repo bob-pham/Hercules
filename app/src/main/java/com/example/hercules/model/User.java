@@ -11,9 +11,18 @@ public class User {
         account = new Account(id, pw, name, birthDayString);
     }
 
+
+
+
+
+
     public void addQuest(Quest quest) {
         goal.addQuest(quest);
     }
+
+
+
+
 
     public void removeQuest(Quest quest) {
         goal.removeQuest(quest);
@@ -23,9 +32,11 @@ public class User {
         return account;
     }
 
+
     public void setAccount(Account account) {
         this.account = account;
     }
+
 
     public Goal getGoal() {
         return goal;
