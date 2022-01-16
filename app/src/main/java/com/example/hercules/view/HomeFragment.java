@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -65,6 +66,37 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         welcomeTextView = view.findViewById(R.id.welcomeTextView);
         welcomeTextView.setText("Welcome, 'insert username'!");
+        ImageView avatar = view.findViewById(R.id.personalAvatarView);
+        changePic(avatar, ClosetFragment.avatar);
         return view;
+    }
+
+    private void changePic(ImageView skin, int skinID) {
+        switch (skinID) {
+            case 1:
+                skin.setImageResource(R.drawable.redarmor);
+                break;
+            case 2:
+                skin.setImageResource(R.drawable.purplearmor);
+                break;
+            case 3:
+                skin.setImageResource(R.drawable.turtlearmor);
+                break;
+            case 4:
+                skin.setImageResource(R.drawable.wizardarmor);
+                break;
+            case 5:
+                skin.setImageResource(R.drawable.emeraldarmor);
+                break;
+            case 6:
+                skin.setImageResource(R.drawable.firearmor);
+                break;
+            case 7:
+                skin.setImageResource(R.drawable.godarmor);
+                break;
+            default:
+                skin.setImageResource(R.drawable.defaultavatar);
+                break;
+        }
     }
 }
