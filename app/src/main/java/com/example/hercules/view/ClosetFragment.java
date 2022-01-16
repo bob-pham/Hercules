@@ -32,6 +32,8 @@ public class ClosetFragment extends Fragment {
     private Button prev;
     private Button next;
 
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
