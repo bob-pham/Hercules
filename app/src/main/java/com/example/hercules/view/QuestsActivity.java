@@ -10,6 +10,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.hercules.MainActivity;
 import com.example.hercules.R;
@@ -23,11 +24,12 @@ public class QuestsActivity extends AppCompatActivity {
 
     private Goal goal;
     private User user;
+    MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MainActivity mainActivity = MainActivity.getInstance();
+        mainActivity = MainActivity.getInstance();
         User user = mainActivity.getUser();
         this.user = user;
         goal = user.getGoal();
@@ -126,4 +128,18 @@ public class QuestsActivity extends AppCompatActivity {
         this.goal = goal;
     }
 
+    @Override
+    public void onBackPressed() {
+        //your method call
+        super.onBackPressed();
+
+        Fragment fragment = null;
+        if (mainActivity.getLastPage()) {
+            fragment = new ClosetFragment();
+        } else {
+            fragment = new HomeFragment();
+        }
+
+        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+    }
 }
