@@ -1,10 +1,8 @@
 package com.example.hercules.model.road_maps;
 
-import com.example.hercules.model.Goal;
+import com.example.hercules.model.Admin;
 import com.example.hercules.model.Quest;
-import com.example.hercules.model.QuestLine;
 import com.example.hercules.model.RoadMap;
-import com.example.hercules.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +10,7 @@ import java.util.List;
 public class BulkUpRoadMap extends RoadMap {
 
     public BulkUpRoadMap() {
-        super("BULK_UP");
+        super(Admin.GoalTypes.BULK_UP.toString());
     }
 
 

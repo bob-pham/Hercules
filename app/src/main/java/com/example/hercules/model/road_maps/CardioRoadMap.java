@@ -1,10 +1,9 @@
 package com.example.hercules.model.road_maps;
 
-import com.example.hercules.model.Goal;
+import com.example.hercules.model.Admin;
 import com.example.hercules.model.Quest;
 import com.example.hercules.model.QuestLine;
 import com.example.hercules.model.RoadMap;
-import com.example.hercules.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 public class CardioRoadMap extends RoadMap {
 
     public CardioRoadMap() {
-        super("CARDIO");
+        super(Admin.GoalTypes.CARDIO.toString());
     }
 
     @Override
