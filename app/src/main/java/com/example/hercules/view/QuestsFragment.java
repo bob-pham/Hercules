@@ -25,9 +25,7 @@ public class QuestsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
     public QuestsFragment() {
-
         // Required empty public constructor
     }
 
@@ -49,8 +47,6 @@ public class QuestsFragment extends Fragment {
         return fragment;
     }
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +56,6 @@ public class QuestsFragment extends Fragment {
         }
 
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

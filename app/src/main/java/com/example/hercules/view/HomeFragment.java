@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.hercules.MainActivity;
 import com.example.hercules.R;
 
 /**
@@ -31,8 +32,6 @@ public class HomeFragment extends Fragment {
     private TextView tvGoldVal;
     private TextView tvLongStreakVal;
     private TextView tvCurrStreakVal;
-    private int CurrLevel = 50;
-    private int CurrGold = 5000;
 
     public HomeFragment() {
         // Required empty constructor
@@ -71,20 +70,23 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        ImageView avatar = view.findViewById(R.id.personalAvatarView);
+        changePic(avatar, ClosetFragment.avatar);
+
         tvWelcomeMessage = view.findViewById(R.id.welcomeTextView);
-        tvWelcomeMessage.setText("Welcome, 'insert username'!");
+        tvWelcomeMessage.setText("Welcome, " + MainActivity.user.getAccount().getName());
 
         tvGoldVal = view.findViewById(R.id.tvGoldVal);
-        tvGoldVal.setText(Integer.toString(CurrGold));
+        tvGoldVal.setText(Integer.toString(MainActivity.user.getUserStats().getGold()));
 
         tvExperienceLevel = view.findViewById(R.id.tvExperienceLevel);
-        tvExperienceLevel.setText("Level " + CurrLevel + ":"); // Replace with user level
+        tvExperienceLevel.setText("Level " + MainActivity.user.getUserStats().getLevel() + ":"); // Replace with user level
 
         tvCurrStreakVal = view.findViewById(R.id.tvCurrStreakVal);
-        tvCurrStreakVal.setText("5");
+        tvCurrStreakVal.setText(String.valueOf(MainActivity.user.getUserStats().getCurrentStreak()));
 
         tvLongStreakVal = view.findViewById(R.id.tvLongStreakVal);
-        tvLongStreakVal.setText("10");
+        tvLongStreakVal.setText(String.valueOf(MainActivity.user.getUserStats().getLongestStreak()));
 
         return view;
     }

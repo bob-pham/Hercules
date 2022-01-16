@@ -17,8 +17,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.hercules.MainActivity;
 import com.example.hercules.R;
 import com.example.hercules.model.SkinsOwned;
+import com.example.hercules.model.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,11 +33,16 @@ public class ClosetFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static int avatar = 0;
     private int currentSkin = 0;
     private Button prev;
     private Button next;
     private Button select;
-    public static int avatar = 0;
+    private ImageView skin;
+    private ImageView coin;
+    private TextView gold;
+    private TextView price;
+    private TextView skinName;
 
 
     // TODO: Rename and change types of parameters
@@ -72,7 +79,6 @@ public class ClosetFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
@@ -80,13 +86,17 @@ public class ClosetFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_closet, container, false);
-        ImageView skin = view.findViewById(R.id.shown_avatar);
-        ImageView coin = view.findViewById(R.id.price_coin);
-        TextView price = view.findViewById(R.id.armor_price);
-        TextView skinName = view.findViewById(R.id.skin_name);
+
+        skin = view.findViewById(R.id.shown_avatar);
+        coin = view.findViewById(R.id.price_coin);
+        gold = view.findViewById(R.id.user_gold);
+        price = view.findViewById(R.id.armor_price);
+        skinName = view.findViewById(R.id.skin_name);
         prev = view.findViewById(R.id.previous);
         next = view.findViewById(R.id.next);
         select = view.findViewById(R.id.select);
+
+        gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
 
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +113,7 @@ public class ClosetFragment extends Fragment {
                         setPrice(price);
                         select.setText("Purchase");
                     }
-                    changePic(skin,skinName);
+                    changePic();
                 }
             }
         });
@@ -123,7 +133,7 @@ public class ClosetFragment extends Fragment {
                         setPrice(price);
                         select.setText("Purchase");
                     }
-                    changePic(skin, skinName);
+                    changePic();
                 }
             }
         });
@@ -131,43 +141,110 @@ public class ClosetFragment extends Fragment {
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                avatar = currentSkin;
+                if (checkOwnSkin()) {
+                    avatar = currentSkin;
+                } else {
+                    attemptPurchaseSkin();
+                }
             }
         });
 
         return view;
     }
 
-    private boolean checkOwnSkin() {
+    private void attemptPurchaseSkin() {
+        int currentGold = MainActivity.user.getUserStats().getGold();
+
         switch (currentSkin) {
             case 1:
-//                return user.ownSkin(SkinsOwned.RED);
-//                break;
-            return true;
+                try {
+                    MainActivity.user.getUserStats().purchase(7);
+                    MainActivity.user.addSkin(SkinsOwned.RED);
+                    updateBought();
+                } catch (Exception e) {
+                    // Nothing
+                }
+                break;
             case 2:
-//                return user.ownSkin(SkinsOwned.PURPLE);
-//                break;
-            return true;
+                try {
+                    MainActivity.user.getUserStats().purchase(20);
+                    MainActivity.user.addSkin(SkinsOwned.PURPLE);
+                    updateBought();
+                } catch (Exception e) {
+                    // Nothing
+                }
+                break;
             case 3:
-//                return user.ownSkin(SkinsOwned.TURTLE);
-//                break;
-            return false;
+                try {
+                    MainActivity.user.getUserStats().purchase(100);
+                    MainActivity.user.addSkin(SkinsOwned.TURTLE);
+                    updateBought();
+                } catch (Exception e) {
+                    // Nothing
+                }
+                break;
             case 4:
-//                return user.ownSkin(SkinsOwned.WIZARD);
-//                break;
-                return false;
+                try {
+                    MainActivity.user.getUserStats().purchase(200);
+                    MainActivity.user.addSkin(SkinsOwned.WIZARD);
+                    updateBought();
+                } catch (Exception e) {
+                    // Nothing
+                }
+                break;
             case 5:
-//                return user.ownSkin(SkinsOwned.EMERALD);
-//                break;
-                return false;
+                try {
+                    MainActivity.user.getUserStats().purchase(1250);
+                    MainActivity.user.addSkin(SkinsOwned.EMERALD);
+                    updateBought();
+                } catch (Exception e) {
+                    // Nothing
+                }
+                break;
             case 6:
-//                return user.ownSkin(SkinsOwned.FIRE);
-//                break;
-                return false;
+                try {
+                    MainActivity.user.getUserStats().purchase(3500);
+                    MainActivity.user.addSkin(SkinsOwned.FIRE);
+                    updateBought();
+                } catch (Exception e) {
+                    // Nothing
+                }
+                break;
             case 7:
-//                return user.ownSkin(SkinsOwned.GOD);
-//                break;
-                return false;
+                try {
+                    MainActivity.user.getUserStats().purchase(5000);
+                    MainActivity.user.addSkin(SkinsOwned.GOD);
+                    updateBought();
+                } catch (Exception e) {
+                    // Nothing
+                }
+                break;
+        }
+
+    }
+
+    private void updateBought() {
+        gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
+        select.setText("Select");
+    }
+
+    private boolean checkOwnSkin() {
+        User user = MainActivity.user;
+        switch (currentSkin) {
+            case 1:
+                return user.ownSkin(SkinsOwned.RED);
+            case 2:
+                return user.ownSkin(SkinsOwned.PURPLE);
+            case 3:
+                return user.ownSkin(SkinsOwned.TURTLE);
+            case 4:
+                return user.ownSkin(SkinsOwned.WIZARD);
+            case 5:
+                return user.ownSkin(SkinsOwned.EMERALD);
+            case 6:
+                return user.ownSkin(SkinsOwned.FIRE);
+            case 7:
+                return user.ownSkin(SkinsOwned.GOD);
             default:
                 return true;
         }
@@ -201,7 +278,7 @@ public class ClosetFragment extends Fragment {
         }
     }
 
-    private void changePic(ImageView skin, TextView skinName) {
+    private void changePic() {
         switch (currentSkin) {
             case 1:
                 skin.setImageResource(R.drawable.redarmor);
