@@ -4,14 +4,14 @@ package com.example.hercules.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User extends Stats {
     private Account account;
     private Goal goal;
-    private double currentRewardsRemaining;
-    private double totalRewardsGained;
+    private Stats userStats;
 
     public User(String id, String pw, String name, String birthDayString) {
         account = new Account(id, pw, name, birthDayString);
+        userStats = new Stats();
     }
 
     public void addQuest(Quest quest) {
@@ -38,22 +38,6 @@ public class User {
         this.goal = goal;
     }
 
-    public double getCurrentRewardsRemaining() {
-        return currentRewardsRemaining;
-    }
-
-    public void setCurrentRewardsRemaining(double currentRewardsRemaining) {
-        this.currentRewardsRemaining = currentRewardsRemaining;
-    }
-
-    public double getTotalRewardsGained() {
-        return totalRewardsGained;
-    }
-
-    public void setTotalRewardsGained(double totalRewardsGained) {
-        this.totalRewardsGained = totalRewardsGained;
-    }
-
     public String getID() {
         return  account.getUserID();
     }
@@ -62,5 +46,12 @@ public class User {
         return account.getUserPW();
     }
 
+    public Stats getUserStats() {
+        return userStats;
+    }
+
+    public void setUserStats(Stats userStats) {
+        this.userStats = userStats;
+    }
 
 }
