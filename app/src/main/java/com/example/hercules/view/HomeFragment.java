@@ -57,6 +57,8 @@ public class HomeFragment extends Fragment {
         return fragment;
     }
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,8 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
+
 
 
 
@@ -94,11 +98,10 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+
+
     private void changePic(ImageView skin, int skinID) {
         switch (skinID) {
-            case 0:
-                skin.setImageResource(R.drawable.defaultavatar);
-                break;
             case 1:
                 skin.setImageResource(R.drawable.redarmor);
                 break;
