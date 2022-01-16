@@ -12,15 +12,12 @@ public class BulkUpRoadMap extends RoadMap {
         super(Admin.GoalTypes.BULK_UP.toString());
     }
 
-
-
     @Override
     public List<Quest> createQuests() {
         List<Quest> quests = new ArrayList<>();
         quests.add(createTheFirstTask());
         return quests;
     }
-
 
     public Quest createTheFirstTask() {
         return null;
