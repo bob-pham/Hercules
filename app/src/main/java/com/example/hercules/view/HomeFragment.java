@@ -26,7 +26,13 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private TextView welcomeTextView;
+    private TextView tvExperienceLevel;
+    private TextView tvWelcomeMessage;
+    private TextView tvGoldVal;
+    private TextView tvLongStreakVal;
+    private TextView tvCurrStreakVal;
+    private int CurrLevel = 50;
+    private int CurrGold = 5000;
 
     public HomeFragment() {
         // Required empty constructor
@@ -64,10 +70,22 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        welcomeTextView = view.findViewById(R.id.welcomeTextView);
-        welcomeTextView.setText("Welcome, 'insert username'!");
-        ImageView avatar = view.findViewById(R.id.personalAvatarView);
-        changePic(avatar, ClosetFragment.avatar);
+
+        tvWelcomeMessage = view.findViewById(R.id.welcomeTextView);
+        tvWelcomeMessage.setText("Welcome, 'insert username'!");
+
+        tvGoldVal = view.findViewById(R.id.tvGoldVal);
+        tvGoldVal.setText(Integer.toString(CurrGold));
+
+        tvExperienceLevel = view.findViewById(R.id.tvExperienceLevel);
+        tvExperienceLevel.setText("Level " + CurrLevel + ":"); // Replace with user level
+
+        tvCurrStreakVal = view.findViewById(R.id.tvCurrStreakVal);
+        tvCurrStreakVal.setText("5");
+
+        tvLongStreakVal = view.findViewById(R.id.tvLongStreakVal);
+        tvLongStreakVal.setText("10");
+
         return view;
     }
 
