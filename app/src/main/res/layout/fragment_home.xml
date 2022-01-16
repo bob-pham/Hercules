@@ -30,10 +30,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:textAlignment="center"
             android:fontFamily="sans-serif-black"
-            android:textColor="#ffff"
-            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="#8C9EFF" />
+                android:fontFamily="sans-serif-black"
+                android:textColor="#000000" />
 
             <ProgressBar
                 android:id="@+id/pbCurrLevel"
@@ -92,15 +93,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
+                    android:fontFamily="sans-serif-black"
                     android:text="@string/gold"
-                    android:textColor="#8C9EFF" />
+                    android:textColor="#000000" />
 
                 <TextView
                     android:id="@+id/tvGoldVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
                     android:text="%s"
-                    android:textColor="#8C9EFF" />
+                    android:textColor="#000000" />
             </TableRow>
 
             <TableRow
@@ -112,15 +115,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif-black"
                     android:text="@string/tvCurrStreak"
-                    android:textColor="#8C9EFF" />
+                    android:textColor="#000000" />
 
                 <TextView
                     android:id="@+id/tvCurrStreakVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
                     android:text="%s"
-                    android:textColor="#8C9EFF" />
+                    android:textColor="#000000" />
 
             </TableRow>
 
@@ -134,19 +139,45 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
+                    android:fontFamily="sans-serif-black"
                     android:text="@string/tvLongStreak"
-                    android:textColor="#8C9EFF" />
+                    android:textColor="#000000" />
 
                 <TextView
                     android:id="@+id/tvLongStreakVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
                     android:text="%s"
-                    android:textColor="#8C9EFF" />
+                    android:textColor="#000000" />
 
             </TableRow>
 
         </TableLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="113dp"
+            android:layout_height="42dp"
+            android:text="Settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.145" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="83dp"
+            android:layout_height="52dp"
+            android:text="Stats"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toEndOf="@+id/statsLayout"
+            app:layout_constraintTop_toBottomOf="@+id/pbContainer"
+            app:layout_constraintVertical_bias="0.277" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

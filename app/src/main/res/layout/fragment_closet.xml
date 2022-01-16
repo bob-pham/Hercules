@@ -119,6 +119,7 @@
             android:id="@+id/user_gold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
             android:text="$"
             android:textColor="#ffff"
             android:textSize="20dp"
