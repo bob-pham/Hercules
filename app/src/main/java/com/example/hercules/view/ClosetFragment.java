@@ -22,6 +22,8 @@ import com.example.hercules.model.User;
  */
 public class ClosetFragment extends Fragment {
 
+    private User user;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,6 +39,9 @@ public class ClosetFragment extends Fragment {
     private TextView gold;
     private TextView price;
     private TextView skinName;
+
+
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -81,6 +86,8 @@ public class ClosetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        user = MainActivity.user;
+        currentSkin = user.getCurrentAvatar();
         View view = inflater.inflate(R.layout.fragment_closet, container, false);
 
         skin = view.findViewById(R.id.shown_avatar);
@@ -92,10 +99,6 @@ public class ClosetFragment extends Fragment {
         next = view.findViewById(R.id.next);
         select = view.findViewById(R.id.select);
         check = view.findViewById(R.id.selected_check);
-        
-
-
-
 
 
         gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
@@ -150,6 +153,7 @@ public class ClosetFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checkOwnSkin()) {
+                    user.setCurrentSkin(SkinsOwned.values()[currentSkin]);
                     avatar = currentSkin;
                     check.setVisibility(View.VISIBLE);
                 } else {
@@ -157,7 +161,7 @@ public class ClosetFragment extends Fragment {
                 }
             }
         });
-
+        changePic();
         return view;
     }
 
@@ -165,7 +169,6 @@ public class ClosetFragment extends Fragment {
 
 
     private void attemptPurchaseSkin() {
-        int currentGold = MainActivity.user.getUserStats().getGold();
 
         switch (currentSkin) {
             case 1:
@@ -234,6 +237,8 @@ public class ClosetFragment extends Fragment {
         }
     }
 
+
+
     private void updateBought() {
         gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
         select.setText("Select");
@@ -244,6 +249,8 @@ public class ClosetFragment extends Fragment {
     private boolean checkOwnSkin() {
         User user = MainActivity.user;
         switch (currentSkin) {
+            case 0:
+                return user.ownSkin(SkinsOwned.NOTHING);
             case 1:
                 return user.ownSkin(SkinsOwned.RED);
             case 2:
@@ -295,6 +302,10 @@ public class ClosetFragment extends Fragment {
 
     private void changePic() {
         switch (currentSkin) {
+            case 0:
+                skin.setImageResource(R.drawable.defaultavatar);
+                skinName.setText("Default");
+                break;
             case 1:
                 skin.setImageResource(R.drawable.redarmor);
                 skinName.setText("Red Armor");
