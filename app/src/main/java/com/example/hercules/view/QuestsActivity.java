@@ -36,25 +36,6 @@ public class QuestsActivity extends AppCompatActivity {
         goal = user.getGoal();
         setContentView(R.layout.fragment_quests);
         addTable();
-//        TableLayout tableLayout = (TableLayout) findViewById(R.id.questTable);
-//        List<Quest> questsTodo = goal.getQuestsTodo();
-//        for (Quest quest: questsTodo) {
-//            TableRow tableRow = new TableRow(this);
-//            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
-//            tableRow.setLayoutParams(lp);
-//            TextView name = new TextView(this);
-////            name.setGravity(Gravity.LEFT);
-//            TextView description = new TextView(this);
-////            name.setGravity(Gravity.CENTER);
-//            TextView points = new TextView(this);
-////            points.setGravity(Gravity.RIGHT);
-//            name.setText(quest.getName());
-//            description.setText(quest.getDescription());
-//            points.setText(String.valueOf(quest.getPoints()));
-//            tableRow.addView(name);
-//            tableRow.addView(description);
-//            tableRow.addView(points);
-//            tableLayout.addView(tableRow);
         }
 
     public void addTable() {
