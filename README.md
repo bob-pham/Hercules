@@ -13,3 +13,4 @@ to develop our app as it uses object-oriented design. Overall we tried to keep c
 simple but also developed an algorithm in which it becomes harder to earn rewards the more you 
 progress.
 
+![alt text](drawable-v24/home.png)
