@@ -33,7 +33,8 @@ public class ClosetFragment extends Fragment {
     private int currentSkin = 0;
     private Button prev;
     private Button next;
-
+    private Button select;
+    public static int avatar = 0;
 
 
     // TODO: Rename and change types of parameters
@@ -82,6 +83,7 @@ public class ClosetFragment extends Fragment {
         TextView skinName = view.findViewById(R.id.skin_name);
         prev = view.findViewById(R.id.previous);
         next = view.findViewById(R.id.next);
+        select = view.findViewById(R.id.select);
 
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +104,14 @@ public class ClosetFragment extends Fragment {
                 }
             }
         });
+
+        select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                avatar = currentSkin;
+            }
+        });
+
         return view;
     }
 
@@ -142,7 +152,4 @@ public class ClosetFragment extends Fragment {
                 break;
         }
     }
-
-
-
 }
