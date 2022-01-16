@@ -70,5 +70,10 @@ public class User {
         return account.getUserPW();
     }
 
+    public void addPoints(int points) {
+        currentRewardsRemaining += points;
+        totalRewardsGained += points;
+    }
+
 
 }

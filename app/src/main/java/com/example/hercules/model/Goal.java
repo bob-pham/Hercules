@@ -2,7 +2,6 @@ package com.example.hercules.model;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,7 +19,10 @@ public class Goal implements PropertyChangeListener {
         this.name = name;
         this.user = user;
         this.questsTodo = questsTodo;
-        questsDone = new ArrayList<>();
+        for (Quest quest: questsTodo) {
+            quest.addPropertyChangeListener(this);
+        }
+        questsDone = questsTodo;
     }
 
     public List<Quest> getQuestsTodo() {
@@ -86,6 +88,7 @@ public class Goal implements PropertyChangeListener {
                 questsTodo.remove(quest);
                 questsDone.add(quest);
                 overallProgress = getQuestsDoneCount() / (double) getTotalQuestNumber();
+                user.addPoints(quest.getPoints());
                 if (overallProgress == 100) {
                     goalAchieved();
                 }
@@ -98,5 +101,10 @@ public class Goal implements PropertyChangeListener {
             return null;
         }
         return questsTodo.get(0);
+    }
+
+    public void questDone(Quest quest) {
+        quest.setProgress(Quest.Status.COMPLETED);
+//        System.out.println(user.getCurrentRewardsRemaining());
     }
 }

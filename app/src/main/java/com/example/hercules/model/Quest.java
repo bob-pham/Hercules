@@ -1,5 +1,6 @@
 package com.example.hercules.model;
 
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Observable;
 
@@ -66,7 +67,15 @@ public class Quest extends Observable {
         Status old = this.progress;
         this.progress = progress;
         changeSupport.firePropertyChange(Update.STATUS.toString(),old, progress);
+    }
 
+    @Override
+    public String toString() {
+        return name + ": " + description + ", points: "  + points;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
     }
 
 
