@@ -21,7 +21,6 @@ import java.util.List;
 
 public class QuestsActivity extends AppCompatActivity {
 
-
     private Goal goal;
     private User user;
 
@@ -115,20 +114,10 @@ public class QuestsActivity extends AppCompatActivity {
             tableRow.addView(checkBox);
             tableLayout.addView(tableRow);
         }
-
-
-
-
-
     }
-
-
 
     public void setGoal(Goal goal) {
         this.goal = goal;
     }
-
-
-
 
 }

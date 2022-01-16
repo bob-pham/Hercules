@@ -91,7 +91,7 @@ public class Goal implements PropertyChangeListener {
                 questsTodo.remove(quest);
                 questsDone.add(quest);
                 overallProgress = getQuestsDoneCount() / (double) getTotalQuestNumber();
-                user.addPoints(quest.getPoints());
+                user.getUserStats().addGold(quest.getPoints());
                 if (overallProgress == 100) {
                     goalAchieved();
                 }
