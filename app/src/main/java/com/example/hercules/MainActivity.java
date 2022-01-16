@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private Admin admin;
     public static User user; //The current user
+    public Boolean lastPage = Boolean.FALSE; // Default home page
 
     private static MainActivity instance;
 
@@ -58,10 +59,12 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.nav_home:
                 fragment = new HomeFragment();
+                lastPage = false;
                 break;
 
             case R.id.nav_closet:
                 fragment = new ClosetFragment();
+                lastPage = true;
                 break;
 
             case R.id.nav_quests:
@@ -74,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 //                fragment = new QuestsFragment();
                 break;
-//                break;
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
@@ -94,4 +96,7 @@ public class MainActivity extends AppCompatActivity {
         return instance;
     }
 
+    public Boolean getLastPage() {
+        return lastPage;
+    }
 }

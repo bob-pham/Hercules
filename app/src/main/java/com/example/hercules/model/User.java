@@ -13,11 +13,14 @@ public class User {
     private Goal goal;
     private Stats userStats;
     private Set<SkinsOwned> skins;
+    private SkinsOwned currentSkin;
 
     public User(String id, String pw, String name, String birthDayString) {
         account = new Account(id, pw, name, birthDayString);
         skins = new HashSet<>();
         this.userStats = new Stats();
+        skins.add(SkinsOwned.NOTHING);
+        currentSkin = SkinsOwned.NOTHING;
     }
 
     public void addQuest(Quest quest) {
@@ -86,10 +89,19 @@ public class User {
 
     public void addSkin(SkinsOwned skin) {
         this.skins.add(skin);
+//        currentSkin = skin;
+    }
+
+    public void setCurrentSkin(SkinsOwned skin) {
+        currentSkin = skin;
     }
 
     public boolean ownSkin(SkinsOwned skin) {
         return this.skins.contains(skin);
+    }
+
+    public int getCurrentAvatar() {
+        return currentSkin.ordinal();
     }
 
 //    public void addPoints(int points) {
