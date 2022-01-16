@@ -4,10 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.hercules.MainActivity;
 import com.example.hercules.R;
+import com.example.hercules.model.Goal;
+import com.example.hercules.model.Quest;
+import com.example.hercules.model.User;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +57,8 @@ public class QuestsFragment extends Fragment {
         return fragment;
     }
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +66,7 @@ public class QuestsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
 
@@ -62,7 +74,33 @@ public class QuestsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        User user = MainActivity.user;
         View view = inflater.inflate(R.layout.fragment_quests, container, false);
+        Goal goal = user.getGoal();
+        TableLayout tableLayout = null;
+        try {
+            tableLayout = (TableLayout) view.findViewById(R.id.questTable);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        List<Quest> questsTodo = goal.getQuestsTodo();
+        for (Quest quest: questsTodo) {
+            TableRow tableRow = new TableRow(getContext());
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            tableRow.setLayoutParams(lp);
+            TextView name = new TextView(getContext());
+            TextView description = new TextView(getContext());
+            TextView points = new TextView(getContext());
+            name.setText(quest.getName());
+            description.setText(quest.getDescription());
+            points.setText(String.valueOf(quest.getPoints()));
+            tableRow.addView(name);
+            tableRow.addView(description);
+            tableRow.addView(points);
+            tableLayout.addView(tableRow);
+        }
+
+
         return view;
     }
 }

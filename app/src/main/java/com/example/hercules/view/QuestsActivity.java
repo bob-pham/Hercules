@@ -18,6 +18,7 @@ public class QuestsActivity extends AppCompatActivity {
 
     private Goal goal;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,8 @@ public class QuestsActivity extends AppCompatActivity {
             tableLayout.addView(tableRow);
         }
     }
+
+
 
     public void setGoal(Goal goal) {
         this.goal = goal;
