@@ -16,16 +16,12 @@ public class Goal implements PropertyChangeListener {
     private List<Quest> questsDone;
     private double overallProgress = 0;
 
-
-
-
     public Goal(String name, User user, List<Quest> questsTodo) {
         this.name = name;
         this.user = user;
         this.questsTodo = questsTodo;
         questsDone = new ArrayList<>();
     }
-
 
     public List<Quest> getQuestsTodo() {
         return questsTodo;
@@ -39,12 +35,9 @@ public class Goal implements PropertyChangeListener {
         this.questsTodo = quests;
     }
 
-
-
     public String getName() {
         return name;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -53,8 +46,6 @@ public class Goal implements PropertyChangeListener {
         Goal goal = (Goal) o;
         return Objects.equals(questsTodo, goal.questsTodo);
     }
-
-
 
     @Override
     public int hashCode() {
@@ -74,28 +65,16 @@ public class Goal implements PropertyChangeListener {
         return getQuestsDoneCount() + getQuestsToDoCount();
     }
 
-
-
     public int getQuestsDoneCount() {
         return questsDone.size();
-//        int count = 0;
-//        for (Quest q: questsDone) {
-//            count += q.getCount();
-//        }
-//        return count;
     }
 
     public int getQuestsToDoCount() {
         return questsTodo.size();
-//        int count = 0;
-//        for (Quest q: questsTodo) {
-//            count += q.getCount();
-//        }
-//        return count;
     }
 
     public void goalAchieved() {
-
+    //TODO
     }
 
     //when a quest is done
