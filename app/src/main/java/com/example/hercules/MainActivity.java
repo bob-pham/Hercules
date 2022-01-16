@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private BottomNavigationView.OnItemSelectedListener bottomNavMethod = menuItem -> {
-
         Fragment fragment = null;
 
         switch (menuItem.getItemId())
