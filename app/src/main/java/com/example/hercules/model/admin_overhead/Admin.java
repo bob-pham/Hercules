@@ -1,5 +1,6 @@
-package com.example.hercules.model;
+package com.example.hercules.model.admin_overhead;
 
+import com.example.hercules.model.User;
 import com.example.hercules.model.road_maps.BulkUpRoadMap;
 import com.example.hercules.model.road_maps.CardioRoadMap;
 import com.example.hercules.model.road_maps.RoadMap;
