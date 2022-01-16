@@ -33,6 +33,8 @@ public class HomeFragment extends Fragment {
     private TextView tvLongStreakVal;
     private TextView tvCurrStreakVal;
 
+
+
     public HomeFragment() {
         // Required empty constructor
     }
@@ -64,15 +66,16 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
         ImageView avatar = view.findViewById(R.id.personalAvatarView);
         changePic(avatar, ClosetFragment.avatar);
-
+//        avatar.setImageResource(MainActivity.user.getCurrentAvatar());
         tvWelcomeMessage = view.findViewById(R.id.welcomeTextView);
         tvWelcomeMessage.setText("Welcome, " + MainActivity.user.getAccount().getName());
 
@@ -93,6 +96,9 @@ public class HomeFragment extends Fragment {
 
     private void changePic(ImageView skin, int skinID) {
         switch (skinID) {
+            case 0:
+                skin.setImageResource(R.drawable.defaultavatar);
+                break;
             case 1:
                 skin.setImageResource(R.drawable.redarmor);
                 break;

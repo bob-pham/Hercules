@@ -13,6 +13,8 @@ public class ShopAchievement extends Achievement {
         shopNeeded *= 2;
     }
 
+
+
     public ShopAchievement(String name, String description) {
         super(name, description);
         this.experience = generateExperience();
