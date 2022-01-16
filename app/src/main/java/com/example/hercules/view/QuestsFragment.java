@@ -112,14 +112,7 @@ public class QuestsFragment extends Fragment {
         goldsColumn.setTextColor(Color.WHITE);
         goldsColumn.setGravity(Gravity.CENTER);
         header.addView(goldsColumn);
-//        TextView checkBoxColumn = new TextView(this);
-//        checkBoxColumn.setText("Done");
-//        checkBoxColumn.setTextColor(Color.WHITE);
-//        checkBoxColumn.setGravity(Gravity.CENTER);
-//        checkBoxColumn.setTextSize(17);
-//        header.addView(checkBoxColumn);
         tableLayout.addView(header);
-//        tableLayout.setBackgroundColor(Color.RED);
         List<Quest> questsTodo = goal.getQuestsTodo();
         for (Quest quest: questsTodo) {
             TableRow tableRow = new TableRow(getContext());
