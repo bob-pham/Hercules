@@ -60,8 +60,6 @@ public class Admin {
         }
     }
 
-
-
     private Goal getGoal(GoalTypes type, User user) {
         switch (type) {
             case WEIGHT_LOSS:
@@ -77,12 +75,9 @@ public class Admin {
         }
     }
 
-
     public Goal getGoal(String typeName, User user) {
         return getGoal(GoalTypes.valueOf(typeName), user);
     }
-
-
 
     public List<User> getUserList() {
         if (userMap.isEmpty()) {
@@ -90,6 +85,7 @@ public class Admin {
         }
         return new ArrayList<>(userMap.values());
     }
+
 
 
 
