@@ -19,8 +19,8 @@ public class User {
         account = new Account(id, pw, name, birthDayString);
         skins = new HashSet<>();
         this.userStats = new Stats();
-        skins.add(SkinsOwned.NOTHING);
-        currentSkin = SkinsOwned.NOTHING;
+        skins.add(SkinsOwned.DEFAULT);
+        currentSkin = SkinsOwned.DEFAULT;
     }
 
     public void addQuest(Quest quest) {
@@ -100,8 +100,8 @@ public class User {
         return this.skins.contains(skin);
     }
 
-    public int getCurrentAvatar() {
-        return currentSkin.ordinal();
+    public SkinsOwned getCurrentAvatar() {
+        return currentSkin;
     }
 
 //    public void addPoints(int points) {

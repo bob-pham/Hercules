@@ -122,11 +122,11 @@ public class QuestsActivity extends AppCompatActivity {
         super.onBackPressed();
 
         Fragment fragment = null;
-        if (mainActivity.getLastPage()) {
-            fragment = new ClosetFragment();
-        } else {
-            fragment = new HomeFragment();
-        }
+//        if (mainActivity.getLastPage()) {
+//            fragment = new ClosetFragment();
+//        } else {
+//            fragment = new HomeFragment();
+//        }
 
         mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }

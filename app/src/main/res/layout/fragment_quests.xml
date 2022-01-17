@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/questpath"
+    android:tag="quest_fragment_tag"
     tools:context=".view.QuestsFragment">
 
 <LinearLayout
