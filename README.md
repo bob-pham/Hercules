@@ -13,3 +13,13 @@ to develop our app as it uses object-oriented design. Overall we tried to keep c
 simple but also developed an algorithm in which it becomes harder to earn rewards the more you 
 progress.
 
+#Main Menu
+
+![Main Menu](app/src/main/res/drawable-v24/home.png)
+
+#Changeroom
+
+![Changeroom](app/src/main/res/drawable-v24/changeroomscreenshot.png)
+
+#Quests
+![Quests](app/src/main/res/drawable-v24/questpage.png)
