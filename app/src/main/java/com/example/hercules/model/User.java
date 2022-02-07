@@ -47,22 +47,6 @@ public class User {
         this.goal = goal;
     }
 
-//    public double getCurrentRewardsRemaining() {
-//        return currentRewardsRemaining;
-//    }
-
-//    public void setCurrentRewardsRemaining(double currentRewardsRemaining) {
-//        this.currentRewardsRemaining = currentRewardsRemaining;
-//    }
-
-//    public double getTotalRewardsGained() {
-//        return totalRewardsGained;
-//    }
-
-//    public void setTotalRewardsGained(double totalRewardsGained) {
-//        this.totalRewardsGained = totalRewardsGained;
-//    }
-
     public String getID() {
         return  account.getUserID();
     }
@@ -89,7 +73,6 @@ public class User {
 
     public void addSkin(SkinsOwned skin) {
         this.skins.add(skin);
-//        currentSkin = skin;
     }
 
     public void setCurrentSkin(SkinsOwned skin) {
@@ -103,15 +86,4 @@ public class User {
     public SkinsOwned getCurrentAvatar() {
         return currentSkin;
     }
-
-//    public void addPoints(int points) {
-//        currentRewardsRemaining += points;
-//        totalRewardsGained += points;
-//    }
-//
-//    public void addPoints(double points) {
-//        currentRewardsRemaining += points;
-//        totalRewardsGained += points;
-//    }
-
 }

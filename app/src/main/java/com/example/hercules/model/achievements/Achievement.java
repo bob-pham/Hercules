@@ -18,14 +18,11 @@ public abstract class Achievement extends Observable implements Observer {
         this.tasksCompleted = 0;
     }
 
-
-
     public Achievement(String name, String description) {
         this.name = name;
         this.description = description;
         this.tasksCompleted = 0;
     }
-
 
     public String getName() {
         return name;

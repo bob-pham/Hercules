@@ -18,7 +18,6 @@ public class QuestLine extends Quest implements Observer, PropertyChangeListener
         this.quests = new ArrayList<>();
     }
 
-
     public void addQuest(Quest quest) {
         quest.addObserver(this);
         this.quests.add(quest);
