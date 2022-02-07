@@ -10,16 +10,16 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.hercules.MainActivity;
 import com.example.hercules.R;
 import com.example.hercules.model.SkinsOwned;
 import com.example.hercules.model.User;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ClosetFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+///**
+// * A simple {@link Fragment} subclass.
+// * Use the {@link ClosetFragment#newInstance} factory method to
+// * create an instance of this fragment.
+// */
+
 public class ClosetFragment extends Fragment {
 
     private User user;
@@ -28,8 +28,9 @@ public class ClosetFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public static int avatar = 0;
-    private int currentSkin = 0;
+    public static SkinsOwned avatar;
+//    private int currentSkinInt;
+    private SkinsOwned currentSkin;
     private Button prev;
     private Button next;
     private Button select;
@@ -42,36 +43,53 @@ public class ClosetFragment extends Fragment {
 
 
 
+    private static ClosetFragment instance;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public ClosetFragment() {
-        // Required empty public constructor
+//    public ClosetFragment() {
+//        // Required empty public constructor
+//    }
+
+    private ClosetFragment(User user) {
+        this.user = user;
+    }
+
+    public static ClosetFragment getInstance(User user) {
+        if (instance == null || !instance.user.equals(user)) {
+            instance = new ClosetFragment(user);
+        }
+        return instance;
+    }
+
+    public User getUser() {
+        return user;
     }
 
 
 
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ClosetFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ClosetFragment newInstance(String param1, String param2) {
-        ClosetFragment fragment = new ClosetFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-        // testing change
-    }
+//    /**
+//     * Use this factory method to create a new instance of
+//     * this fragment using the provided parameters.
+//     *
+//     * @param param1 Parameter 1.
+//     * @param param2 Parameter 2.
+//     * @return A new instance of fragment ClosetFragment.
+//     */
+////    // TODO: Rename and change types and number of parameters
+//    public static ClosetFragment newInstance(String param1, String param2) {
+//        ClosetFragment fragment = new ClosetFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//        // testing change
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,13 +98,13 @@ public class ClosetFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        user = MainActivity.user;
         currentSkin = user.getCurrentAvatar();
         View view = inflater.inflate(R.layout.fragment_closet, container, false);
 
@@ -101,51 +119,53 @@ public class ClosetFragment extends Fragment {
         check = view.findViewById(R.id.selected_check);
 
 
-        gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
+        gold.setText("$" + String.valueOf(user.getUserStats().getGold()));
 
-        if (currentSkin == avatar) {
+        if (currentSkin.equals(avatar)) {
             check.setVisibility(View.VISIBLE);
         } else {
             check.setVisibility(View.INVISIBLE);
         }
 
+//        if (currentSkinInt == avatar) {
+//            check.setVisibility(View.VISIBLE);
+//        } else {
+//            check.setVisibility(View.INVISIBLE);
+//        }
+
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (currentSkin > 0) {
-                    currentSkin--;
-                    if (checkOwnSkin()) {
-                        coin.setVisibility(View.INVISIBLE);
-                        price.setVisibility(View.INVISIBLE);
-                        select.setText("Select");
-                    } else {
-                        coin.setVisibility(View.VISIBLE);
-                        price.setVisibility(View.VISIBLE);
-                        setPrice(price);
-                        select.setText("Purchase");
-                    }
-                    changePic();
+                currentSkin = currentSkin.prev();
+                if (checkOwnSkin()) {
+                    coin.setVisibility(View.INVISIBLE);
+                    price.setVisibility(View.INVISIBLE);
+                    select.setText("Select");
+                } else {
+                    coin.setVisibility(View.VISIBLE);
+                    price.setVisibility(View.VISIBLE);
+                    setPrice(price);
+                    select.setText("Purchase");
                 }
+                changePic();
             }
         });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (currentSkin < 7) {
-                    currentSkin++;
-                    if (checkOwnSkin()) {
-                        coin.setVisibility(View.INVISIBLE);
-                        price.setVisibility(View.INVISIBLE);
-                        select.setText("Select");
-                    } else {
-                        coin.setVisibility(View.VISIBLE);
-                        price.setVisibility(View.VISIBLE);
-                        setPrice(price);
-                        select.setText("Purchase");
-                    }
-                    changePic();
+                currentSkin = currentSkin.next();
+                if (checkOwnSkin()) {
+                    coin.setVisibility(View.INVISIBLE);
+                    price.setVisibility(View.INVISIBLE);
+                    select.setText("Select");
+                } else {
+                    coin.setVisibility(View.VISIBLE);
+                    price.setVisibility(View.VISIBLE);
+                    setPrice(price);
+                    select.setText("Purchase");
                 }
+                changePic();
             }
         });
 
@@ -153,7 +173,7 @@ public class ClosetFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checkOwnSkin()) {
-                    user.setCurrentSkin(SkinsOwned.values()[currentSkin]);
+                    user.setCurrentSkin(currentSkin);
                     avatar = currentSkin;
                     check.setVisibility(View.VISIBLE);
                 } else {
@@ -169,66 +189,65 @@ public class ClosetFragment extends Fragment {
 
 
     private void attemptPurchaseSkin() {
-
         switch (currentSkin) {
-            case 1:
+            case RED:
                 try {
-                    MainActivity.user.getUserStats().purchase(7);
-                    MainActivity.user.addSkin(SkinsOwned.RED);
+                    user.getUserStats().purchase(7);
+                    user.addSkin(SkinsOwned.RED);
                     updateBought();
                 } catch (Exception e) {
                     // Nothing
                 }
                 break;
-            case 2:
+            case PURPLE:
                 try {
-                    MainActivity.user.getUserStats().purchase(20);
-                    MainActivity.user.addSkin(SkinsOwned.PURPLE);
+                    user.getUserStats().purchase(20);
+                    user.addSkin(SkinsOwned.PURPLE);
                     updateBought();
                 } catch (Exception e) {
                     // Nothing
                 }
                 break;
-            case 3:
+            case TURTLE:
                 try {
-                    MainActivity.user.getUserStats().purchase(100);
-                    MainActivity.user.addSkin(SkinsOwned.TURTLE);
+                    user.getUserStats().purchase(100);
+                    user.addSkin(SkinsOwned.TURTLE);
                     updateBought();
                 } catch (Exception e) {
                     // Nothing
                 }
                 break;
-            case 4:
+            case WIZARD:
                 try {
-                    MainActivity.user.getUserStats().purchase(200);
-                    MainActivity.user.addSkin(SkinsOwned.WIZARD);
+                    user.getUserStats().purchase(200);
+                    user.addSkin(SkinsOwned.WIZARD);
                     updateBought();
                 } catch (Exception e) {
                     // Nothing
                 }
                 break;
-            case 5:
+            case EMERALD:
                 try {
-                    MainActivity.user.getUserStats().purchase(1250);
-                    MainActivity.user.addSkin(SkinsOwned.EMERALD);
+                    user.getUserStats().purchase(1250);
+                    user.addSkin(SkinsOwned.EMERALD);
                     updateBought();
                 } catch (Exception e) {
                     // Nothing
                 }
                 break;
-            case 6:
+            case FIRE:
                 try {
-                    MainActivity.user.getUserStats().purchase(3500);
-                    MainActivity.user.addSkin(SkinsOwned.FIRE);
+                    user.getUserStats().purchase(3500);
+                    user.addSkin(SkinsOwned.FIRE);
                     updateBought();
                 } catch (Exception e) {
                     // Nothing
                 }
                 break;
-            case 7:
+            case GOD:
                 try {
-                    MainActivity.user.getUserStats().purchase(5000);
-                    MainActivity.user.addSkin(SkinsOwned.GOD);
+                    user.getUserStats().purchase(5000);
+                    user.addSkin(SkinsOwned.GOD);
                     updateBought();
                 } catch (Exception e) {
                     // Nothing
@@ -240,57 +259,55 @@ public class ClosetFragment extends Fragment {
 
 
     private void updateBought() {
-        gold.setText("$" + String.valueOf(MainActivity.user.getUserStats().getGold()));
+        gold.setText("$" + String.valueOf(user.getUserStats().getGold()));
         select.setText("Select");
         coin.setVisibility(View.INVISIBLE);
         price.setVisibility(View.INVISIBLE);
     }
 
     private boolean checkOwnSkin() {
-        User user = MainActivity.user;
         switch (currentSkin) {
-            case 0:
-                return user.ownSkin(SkinsOwned.NOTHING);
-            case 1:
+            case DEFAULT:
+                return user.ownSkin(SkinsOwned.DEFAULT);
+            case RED:
                 return user.ownSkin(SkinsOwned.RED);
-            case 2:
+            case PURPLE:
                 return user.ownSkin(SkinsOwned.PURPLE);
-            case 3:
+            case TURTLE:
                 return user.ownSkin(SkinsOwned.TURTLE);
-            case 4:
+            case WIZARD:
                 return user.ownSkin(SkinsOwned.WIZARD);
-            case 5:
+            case EMERALD:
                 return user.ownSkin(SkinsOwned.EMERALD);
-            case 6:
+            case FIRE:
                 return user.ownSkin(SkinsOwned.FIRE);
-            case 7:
+            case GOD:
                 return user.ownSkin(SkinsOwned.GOD);
-            default:
-                return true;
         }
+        throw new RuntimeException("There doesn't exist such a skin");
     }
 
     private void setPrice(TextView price) {
         switch (currentSkin) {
-            case 1:
+            case RED:
                 price.setText("$7");
                 break;
-            case 2:
+            case PURPLE:
                 price.setText("$20");
                 break;
-            case 3:
+            case TURTLE:
                 price.setText("$100");
                 break;
-            case 4:
+            case WIZARD:
                 price.setText("$200");
                 break;
-            case 5:
+            case EMERALD:
                 price.setText("$1250");
                 break;
-            case 6:
+            case FIRE:
                 price.setText("$3500");
                 break;
-            case 7:
+            case GOD:
                 price.setText("$5000");
                 break;
             default:
@@ -302,45 +319,41 @@ public class ClosetFragment extends Fragment {
 
     private void changePic() {
         switch (currentSkin) {
-            case 0:
+            case DEFAULT:
                 skin.setImageResource(R.drawable.defaultavatar);
                 skinName.setText("Default");
                 break;
-            case 1:
+            case RED:
                 skin.setImageResource(R.drawable.redarmor);
                 skinName.setText("Red Armor");
                 break;
-            case 2:
+            case PURPLE:
                 skin.setImageResource(R.drawable.purplearmor);
                 skinName.setText("Purple Armor");
                 break;
-            case 3:
+            case TURTLE:
                 skin.setImageResource(R.drawable.turtlearmor);
                 skinName.setText("Turtle Armor");
                 break;
-            case 4:
+            case WIZARD:
                 skin.setImageResource(R.drawable.wizardarmor);
                 skinName.setText("Wizard Armor");
                 break;
-            case 5:
+            case EMERALD:
                 skin.setImageResource(R.drawable.emeraldarmor);
                 skinName.setText("Emerald Armor");
                 break;
-            case 6:
+            case FIRE:
                 skin.setImageResource(R.drawable.firearmor);
                 skinName.setText("Fire Armor");
                 break;
-            case 7:
+            case GOD:
                 skin.setImageResource(R.drawable.godarmor);
                 skinName.setText("God Armor");
                 break;
-            default:
-                skin.setImageResource(R.drawable.defaultavatar);
-                skinName.setText("Default");
-                currentSkin = 0;
-                break;
         }
-        if (currentSkin == avatar) {
+
+        if (currentSkin.equals(avatar)) {
             check.setVisibility(View.VISIBLE);
         } else {
             check.setVisibility(View.INVISIBLE);

@@ -3,7 +3,6 @@ package com.example.hercules;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.example.hercules.model.User;
 import com.example.hercules.model.admin_overhead.Admin;
@@ -16,14 +15,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private Admin admin;
-    public static User user; //The current user
+    public User user; //The current user
     public Boolean lastPage = Boolean.FALSE; // Default home page
+    private static HomeFragment homeFragment;
+    private static ClosetFragment closetFragment;
+    private static QuestsFragment questsFragment;
+
 
     private static MainActivity instance;
 
     private void initializeUser() {
-        MainActivity.user = admin.createUser("69420","password","Achilles","2002-01-01", Admin.GoalTypes.CARDIO.toString());
-        initializeUserStats(MainActivity.user.getUserStats());
+        user = admin.createUser("69420","password","Achilles","2002-01-01", Admin.GoalTypes.CARDIO.toString());
+        initializeUserStats(user.getUserStats());
     }
 
     private void initializeUserStats(Stats s) {
@@ -38,46 +41,49 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        instance = this;
-        admin = new Admin();
-        initializeUser();
-        //for testing
-//        user = admin.createUser("chicken", "pizza", "coke", "2000-09-09", Admin.GoalTypes.CARDIO.toString());
-        setContentView(R.layout.activity_main);
-        bottomNavigationView = findViewById(R.id.bottomNav);
-        bottomNavigationView.setOnItemSelectedListener(bottomNavMethod);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+        try {
+            super.onCreate(savedInstanceState);
+            instance = this;
+            setContentView(R.layout.activity_main);
+            admin = new Admin();
+            initializeUser();
+            homeFragment = HomeFragment.getInstance(user);
+            closetFragment = ClosetFragment.getInstance(user);
+            questsFragment = QuestsFragment.getInstance(user);
+            bottomNavigationView = findViewById(R.id.bottomNav);
+            bottomNavigationView.setOnItemSelectedListener(bottomNavMethod);
+            getSupportFragmentManager().beginTransaction().add(R.id.container, homeFragment, homeFragment.getTag()).commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private BottomNavigationView.OnItemSelectedListener bottomNavMethod = menuItem -> {
-        Fragment fragment = null;
 
         switch (menuItem.getItemId())
         {
             case R.id.nav_home:
-                fragment = new HomeFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment, homeFragment.getTag()).commit();
                 lastPage = false;
                 break;
 
             case R.id.nav_closet:
-                fragment = new ClosetFragment();
+//                closetFragment = ClosetFragment.getInstance(user);
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, closetFragment, closetFragment.getTag()).commit();
                 lastPage = true;
                 break;
 
             case R.id.nav_quests:
                 try {
-                    fragment = new QuestsFragment();
+//                    questsFragment = QuestsFragment.getInstance(user);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, questsFragment, questsFragment.getTag()).commit();
 //                    Intent intent = new Intent(getApplicationContext(), QuestsActivity.class);
 //                    startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-//                fragment = new QuestsFragment();
                 break;
         }
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
 
         return true;
     };
