@@ -19,19 +19,13 @@ public class CardioRoadMap extends RoadMap {
         return quests;
     }
 
-
     public List<Quest> createFirstQuest() {
-//        Quest start
-//        QuestLine questLine = new QuestLine("START", false);
         Quest firstQuest = new Quest("Warm up!", 100, false);
         firstQuest.setDescription("Jog 10 min");
-//        questLine.addQuest(firstQuest);
         Quest secondQuest = new Quest("Main quest!", 150, false);
         secondQuest.setDescription("Dash 3 minutes");
-//        questLine.addQuest(secondQuest);
         Quest thirdQuest = new Quest("Final quest!", 300, false);
         thirdQuest.setDescription("Repeat!");
-//        questLine.addQuest(thirdQuest);
 
         List<Quest> quests = new ArrayList<>();
         quests.add(firstQuest);

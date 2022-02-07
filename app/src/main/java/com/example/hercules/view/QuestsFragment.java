@@ -44,10 +44,6 @@ public class QuestsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-//    public QuestsFragment() {
-//        // Required empty public constructor
-//    }
-
     private QuestsFragment(User user) {
         this.user = user;
     }
@@ -81,12 +77,6 @@ public class QuestsFragment extends Fragment {
 //        return fragment;
 //    }
 
-
-
-
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,10 +85,6 @@ public class QuestsFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -112,10 +98,6 @@ public class QuestsFragment extends Fragment {
         addTable(view);
         return view;
     }
-
-
-
-
 
     public void addTable(View view) {
         TableLayout tableLayout = (TableLayout) view.findViewById(R.id.quest_table);

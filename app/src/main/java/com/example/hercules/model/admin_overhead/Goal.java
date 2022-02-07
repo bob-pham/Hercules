@@ -61,7 +61,6 @@ public class Goal implements PropertyChangeListener {
         questsTodo.add(quest);
     }
 
-
     public void removeQuest(Quest quest) {
         questsTodo.remove(quest);
     }

@@ -69,9 +69,6 @@ public class ClosetFragment extends Fragment {
         return user;
     }
 
-
-
-
 //    /**
 //     * Use this factory method to create a new instance of
 //     * this fragment using the provided parameters.
@@ -118,7 +115,6 @@ public class ClosetFragment extends Fragment {
         select = view.findViewById(R.id.select);
         check = view.findViewById(R.id.selected_check);
 
-
         gold.setText("$" + String.valueOf(user.getUserStats().getGold()));
 
         if (currentSkin.equals(avatar)) {
@@ -126,12 +122,6 @@ public class ClosetFragment extends Fragment {
         } else {
             check.setVisibility(View.INVISIBLE);
         }
-
-//        if (currentSkinInt == avatar) {
-//            check.setVisibility(View.VISIBLE);
-//        } else {
-//            check.setVisibility(View.INVISIBLE);
-//        }
 
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,9 +174,6 @@ public class ClosetFragment extends Fragment {
         changePic();
         return view;
     }
-
-
-
 
     private void attemptPurchaseSkin() {
         switch (currentSkin) {
@@ -256,8 +243,6 @@ public class ClosetFragment extends Fragment {
         }
     }
 
-
-
     private void updateBought() {
         gold.setText("$" + String.valueOf(user.getUserStats().getGold()));
         select.setText("Select");
@@ -314,8 +299,6 @@ public class ClosetFragment extends Fragment {
                 break;
         }
     }
-
-
 
     private void changePic() {
         switch (currentSkin) {

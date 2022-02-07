@@ -69,12 +69,9 @@ public class HomeFragment extends Fragment {
         return instance;
     }
 
-
     public User getUser() {
         return user;
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,12 +81,6 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
-
-
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -116,8 +107,6 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
-
-
 
     private void changePic(ImageView skin, SkinsOwned currentSkin) {
         switch (currentSkin) {

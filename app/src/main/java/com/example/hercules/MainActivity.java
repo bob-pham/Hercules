@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hercules.model.User;
-import com.example.hercules.model.admin_overhead.Admin;
-import com.example.hercules.model.admin_overhead.Stats;
 import com.example.hercules.view.ClosetFragment;
 import com.example.hercules.view.HomeFragment;
 import com.example.hercules.view.QuestsFragment;
@@ -20,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private static HomeFragment homeFragment;
     private static ClosetFragment closetFragment;
     private static QuestsFragment questsFragment;
-
 
     private static MainActivity instance;
 
@@ -68,17 +65,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_closet:
-//                closetFragment = ClosetFragment.getInstance(user);
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, closetFragment, closetFragment.getTag()).commit();
                 lastPage = true;
                 break;
 
             case R.id.nav_quests:
                 try {
-//                    questsFragment = QuestsFragment.getInstance(user);
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, questsFragment, questsFragment.getTag()).commit();
-//                    Intent intent = new Intent(getApplicationContext(), QuestsActivity.class);
-//                    startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
