@@ -1,6 +1,6 @@
-# nwHacks Project: Hercules
+# nwHacks 2022 Project: Hercules
 
-## Bob Pham, Jay Jang, Jay Esquivel, Nafis Ahsan
+### By: Bob Pham, Jay Jang, Jay Esquivel, Nafis Ahsan
 
 **Project Description:**
 Our team decided to make an android app we call Hercules. Hercules is a "gamified" health tracking 
@@ -13,23 +13,23 @@ to develop our app as it uses object-oriented design. Overall we tried to keep c
 simple but also developed an algorithm in which it becomes harder to earn rewards the more you 
 progress.
 
-# Further Reading + Bob's Specific Contributions:
+## Further Reading + Bob's Specific Contributions:
 
 https://bob-pham.github.io/project_pages/hercules.html
 
-# Demo + Explanation:
+## Demo + Explanation:
 
 https://youtu.be/h7hHna3sPq8
 
-# Images
+## Images
 
-## Main Menu
+### Main Menu
 
 ![Main Menu](app/src/main/res/drawable-v24/home.png)
 
-## Changeroom
+### Changeroom
 
 ![Changeroom](app/src/main/res/drawable-v24/changeroomscreenshot.png)
 
-## Quests
+### Quests
 ![Quests](app/src/main/res/drawable-v24/questpage.png)
