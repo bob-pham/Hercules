@@ -15,7 +15,7 @@ progress.
 
 ## Further Reading + Bob's Specific Contributions:
 
-https://bob-pham.github.io/project_pages/hercules.html
+https://bobpham.vercel.app/hercules
 
 ## Demo + Explanation:
 
